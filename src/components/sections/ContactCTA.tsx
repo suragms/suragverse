@@ -43,11 +43,11 @@ export default function ContactCTA() {
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
       >
-        <div className="absolute right-[8%] top-1/2 -translate-y-1/2 w-[520px] h-[720px] rounded-full bg-electric-blue/8 blur-[120px]" />
-        <div className="absolute left-[15%] bottom-[10%] w-[360px] h-[360px] rounded-full bg-purple/6 blur-[110px]" />
+        <div className="absolute right-[4%] sm:right-[8%] top-1/2 -translate-y-1/2 w-[280px] sm:w-[520px] h-[400px] sm:h-[720px] rounded-full bg-electric-blue/8 blur-[80px] sm:blur-[120px]" />
+        <div className="absolute left-[10%] sm:left-[15%] bottom-[10%] w-[200px] sm:w-[360px] h-[200px] sm:h-[360px] rounded-full bg-purple/6 blur-[70px] sm:blur-[110px]" />
       </motion.div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-28 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-20 sm:py-28 grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-14 items-center">
         {/* Portrait emerging from darkness */}
         <div className="relative order-2 lg:order-1 flex justify-center">
           <motion.div
@@ -109,7 +109,7 @@ export default function ContactCTA() {
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.1 }}
-            className="font-[family-name:var(--font-heading)] text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[0.9] mb-8"
+            className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[0.9] mb-6 sm:mb-8"
           >
             THE JOURNEY
             <br />
@@ -131,11 +131,11 @@ export default function ContactCTA() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4"
           >
             <button
               onClick={() => scrollToSection("#enquiry-form")}
-              className="group inline-flex items-center gap-3 px-9 py-4.5 rounded-full bg-white text-black text-sm font-bold tracking-wider hover:bg-electric-blue transition-colors duration-500 hover:shadow-[0_0_50px_rgba(0,217,255,0.3)]"
+              className="group inline-flex items-center justify-center gap-3 px-7 sm:px-9 py-3.5 sm:py-4.5 rounded-full bg-white text-black text-xs sm:text-sm font-bold tracking-wider hover:bg-electric-blue transition-colors duration-500 hover:shadow-[0_0_50px_rgba(0,217,255,0.3)] min-h-[48px] w-full sm:w-auto"
             >
               START A PROJECT
               <ArrowRight
@@ -147,7 +147,7 @@ export default function ContactCTA() {
               href={contactInfo.linktree}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 px-9 py-4.5 rounded-full border border-electric-blue/40 text-electric-blue text-sm font-bold tracking-wider hover:bg-electric-blue/10 transition-all duration-500"
+              className="group inline-flex items-center justify-center gap-3 px-7 sm:px-9 py-3.5 sm:py-4.5 rounded-full border border-electric-blue/40 text-electric-blue text-xs sm:text-sm font-bold tracking-wider hover:bg-electric-blue/10 transition-all duration-500 min-h-[48px] w-full sm:w-auto"
             >
               EXPLORE MY DIGITAL HUB
               <ArrowUpRight

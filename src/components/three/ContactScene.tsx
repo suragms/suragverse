@@ -174,13 +174,15 @@ function Scene({ mobile }: { mobile: boolean }) {
 export default function ContactScene() {
   // Detect small screens once so heavy network detail is reduced for mobile.
   const [mobile] = useState(
-    () => typeof window !== "undefined" && window.innerWidth < 768
+    () => typeof window !== "undefined" && (window.innerWidth < 768 || window.matchMedia("(pointer: coarse)").matches)
   );
+
+  const dpr = typeof window !== "undefined" ? Math.min(window.devicePixelRatio, 2) : 1;
 
   return (
     <Canvas
       camera={{ position: [0, 0, 8], fov: 50 }}
-      dpr={[1, 1.8]}
+      dpr={[1, dpr]}
       gl={{ antialias: true, alpha: true, powerPreference: "low-power" }}
       style={{ background: "transparent", position: "absolute", inset: 0 }}
     >

@@ -35,7 +35,7 @@ export default function ProjectTransition() {
   return (
     <section
       ref={ref}
-      className="relative min-h-[130vh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[100vh] sm:min-h-[130vh] flex items-center justify-center overflow-hidden"
     >
       {/* Creative composite background */}
       <motion.div
@@ -56,9 +56,9 @@ export default function ProjectTransition() {
         <div className="absolute inset-0 bg-background/40" />
       </motion.div>
 
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 text-center py-40">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 text-center py-28 sm:py-40">
         {/* Cycling stages */}
-        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mb-14 font-mono text-xs sm:text-sm tracking-[0.4em] text-white/70">
+        <div className="flex flex-wrap items-center justify-center gap-x-3 gap-x-4 gap-y-2 mb-10 sm:mb-14 font-mono text-[10px] sm:text-xs md:text-sm tracking-[0.3em] sm:tracking-[0.4em] text-white/70">
           {stages.map((stage, i) => (
             <motion.span
               key={stage}
@@ -80,7 +80,7 @@ export default function ProjectTransition() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-120px" }}
           transition={{ duration: 0.9 }}
-          className="font-[family-name:var(--font-heading)] text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight leading-[0.9] mb-20"
+          className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold tracking-tight leading-[0.9] mb-12 sm:mb-20"
         >
           THE IDEAS
           <br />
@@ -90,13 +90,13 @@ export default function ProjectTransition() {
         {/* Project names bridge to the 3D universe */}
         <motion.div
           style={{ opacity: fadeUp }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 flex-wrap"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 flex-wrap"
         >
           {projects.map((p) => (
             <button
               key={p.name}
               onClick={() => scrollToSection("#projects")}
-              className="group relative px-7 py-4 rounded-full border border-glass-border glass hover:border-white/40 transition-all duration-500"
+              className="group relative px-5 sm:px-7 py-3 sm:py-4 rounded-full border border-glass-border glass hover:border-white/40 transition-all duration-500 min-h-[44px]"
             >
               <span
                 className="font-[family-name:var(--font-heading)] text-sm sm:text-base font-bold tracking-[0.15em]"

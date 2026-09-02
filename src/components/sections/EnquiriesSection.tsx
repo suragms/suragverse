@@ -82,8 +82,8 @@ export default function EnquiriesSection() {
 
       {/* Ambient glows */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-24 -left-32 w-[480px] h-[480px] rounded-full bg-electric-blue/5 blur-[140px]" />
-        <div className="absolute bottom-24 -right-32 w-[480px] h-[480px] rounded-full bg-purple/5 blur-[140px]" />
+        <div className="absolute top-24 -left-24 sm:-left-32 w-[280px] sm:w-[480px] h-[280px] sm:h-[480px] rounded-full bg-electric-blue/5 blur-[100px] sm:blur-[140px]" />
+        <div className="absolute bottom-24 -right-24 sm:-right-32 w-[280px] sm:w-[480px] h-[280px] sm:h-[480px] rounded-full bg-purple/5 blur-[100px] sm:blur-[140px]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -122,16 +122,16 @@ export default function EnquiriesSection() {
 
         {/* Services */}
         <div className="mb-28">
-          <motion.p
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="text-sm tracking-[0.4em] text-electric-blue mb-12 font-mono"
-          >
+            <motion.p
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="text-xs sm:text-sm tracking-[0.3em] sm:tracking-[0.4em] text-electric-blue mb-8 sm:mb-12 font-mono"
+            >
             — DM FOR ENQUIRIES
           </motion.p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {services.map((service, i) => {
               const Icon = serviceIcons[service.icon] ?? Briefcase;
               return (
@@ -155,15 +155,15 @@ export default function EnquiriesSection() {
                       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(circle_at_top_right,rgba(0,217,255,0.12),transparent_70%)]" />
 
                       <div
-                        className="w-12 h-12 rounded-xl bg-electric-blue/10 border border-electric-blue/20 flex items-center justify-center text-electric-blue mb-5 transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_25px_rgba(0,217,255,0.25)]"
+                        className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-electric-blue/10 border border-electric-blue/20 flex items-center justify-center text-electric-blue mb-4 sm:mb-5 transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_25px_rgba(0,217,255,0.25)]"
                       >
                         <Icon size={22} className="transition-transform duration-500 group-hover:-rotate-6" />
                       </div>
 
-                      <h3 className="font-[family-name:var(--font-heading)] text-lg font-semibold mb-2 tracking-tight">
+                      <h3 className="font-[family-name:var(--font-heading)] text-base sm:text-lg font-semibold mb-1.5 sm:mb-2 tracking-tight">
                         {service.title}
                       </h3>
-                      <p className="text-sm text-secondary-text leading-relaxed">
+                      <p className="text-xs sm:text-sm text-secondary-text leading-relaxed">
                         {service.description}
                       </p>
 
@@ -179,18 +179,18 @@ export default function EnquiriesSection() {
         </div>
 
         {/* Contact panel + Linktree feature */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 items-stretch">
           {/* Contact panel */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass-strong rounded-3xl p-8 sm:p-10"
+            className="glass-strong rounded-3xl p-6 sm:p-8 lg:p-10"
           >
-            <p className="text-sm tracking-[0.4em] text-electric-blue mb-2 font-mono">
+            <p className="text-sm sm:text-base tracking-[0.3em] sm:tracking-[0.4em] text-electric-blue mb-2 font-mono">
               CONTACT INFORMATION
             </p>
-            <h3 className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl font-bold tracking-tight mb-8">
+            <h3 className="font-[family-name:var(--font-heading)] text-xl sm:text-2xl md:text-3xl font-bold tracking-tight mb-6 sm:mb-8">
               REACH OUT
               <br />
               <span className="gradient-text">ANY TIME.</span>
@@ -205,16 +205,16 @@ export default function EnquiriesSection() {
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
                   data-cursor-card
-                  className="group flex items-center gap-4 rounded-2xl border border-glass-border bg-glass px-5 py-4 hover:border-electric-blue/40 hover:bg-electric-blue/5 transition-all duration-400"
+                  className="group flex items-center gap-3 sm:gap-4 rounded-2xl border border-glass-border bg-glass px-4 sm:px-5 py-3.5 sm:py-4 hover:border-electric-blue/40 hover:bg-electric-blue/5 transition-all duration-400 min-h-[56px]"
                 >
                   <span className="w-11 h-11 rounded-xl bg-electric-blue/10 border border-electric-blue/20 flex items-center justify-center text-electric-blue transition-transform duration-500 group-hover:scale-110">
                     <Icon size={20} />
                   </span>
                   <span className="flex-1 min-w-0">
-                    <span className="block text-[10px] tracking-[0.25em] text-secondary-text uppercase">
+                    <span className="block text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] text-secondary-text uppercase">
                       {label}
                     </span>
-                    <span className="block text-sm font-medium text-white/90 truncate">
+                    <span className="block text-xs sm:text-sm font-medium text-white/90 truncate">
                       {value}
                     </span>
                   </span>
@@ -245,12 +245,13 @@ export default function EnquiriesSection() {
               >
                 {/* Animated 3D rings */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="relative w-56 h-56" style={{ transformStyle: "preserve-3d" }}>
+                  <div className="relative w-40 h-40 sm:w-56 sm:h-56" style={{ transformStyle: "preserve-3d" }}>
                     <div className="absolute inset-0 rounded-full border border-electric-blue/30 ring-3d-1" />
                     <div className="absolute inset-0 rounded-full border border-purple/30 ring-3d-2" />
                     <div className="absolute inset-0 rounded-full border border-electric-blue/10 ring-3d-3" />
                     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-electric-blue/20 blur-2xl" />
-                    <LinktreeIcon size={56} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-electric-blue" />
+                    <LinktreeIcon size={40} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-electric-blue sm:hidden" />
+                    <LinktreeIcon size={56} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-electric-blue hidden sm:block" />
                   </div>
                 </div>
 
@@ -261,19 +262,19 @@ export default function EnquiriesSection() {
                 <span className="particle particle-4" />
 
                 {/* Content */}
-                <div className="relative z-10 flex flex-col items-center justify-center text-center h-full py-16 px-8">
-                  <p className="text-[10px] tracking-[0.4em] text-electric-blue mb-4 font-mono">
+                <div className="relative z-10 flex flex-col items-center justify-center text-center h-full py-12 sm:py-16 px-6 sm:px-8">
+                  <p className="text-[9px] sm:text-[10px] tracking-[0.3em] sm:tracking-[0.4em] text-electric-blue mb-3 sm:mb-4 font-mono">
                     MY DIGITAL HUB
                   </p>
-                  <h3 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-bold tracking-tight leading-[1.05] mb-4">
+                  <h3 className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight leading-[1.05] mb-3 sm:mb-4">
                     ONE LINK.
                     <br />
                     <span className="gradient-text">EVERYTHING I CREATE.</span>
                   </h3>
-                  <p className="text-secondary-text text-sm mb-8 max-w-xs">
+                  <p className="text-secondary-text text-xs sm:text-sm mb-6 sm:mb-8 max-w-xs">
                     Portfolio, projects, socials and more — all in one place.
                   </p>
-                  <span className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-black text-xs font-bold tracking-widest group-hover:bg-electric-blue transition-colors duration-500">
+                  <span className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-white text-black text-[11px] sm:text-xs font-bold tracking-widest group-hover:bg-electric-blue transition-colors duration-500 min-h-[44px]">
                     EXPLORE MY LINKS
                     <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-300" />
                   </span>

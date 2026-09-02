@@ -36,6 +36,7 @@ export default function TiltCard({
   );
 
   const handleMouseMove = (e: React.MouseEvent) => {
+    if (disabled) return;
     const rect = ref.current?.getBoundingClientRect();
     if (!rect) return;
     px.set((e.clientX - rect.left) / rect.width);

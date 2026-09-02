@@ -33,7 +33,7 @@ function usePrefersReducedMotion() {
 }
 
 /** Deterministic floating particles rendered as tiny divs. */
-function Particles({ count = 26 }: { count?: number }) {
+function Particles({ count = 20 }: { count?: number }) {
   const seeds = useRef<number[]>([]);
   if (seeds.current.length === 0) {
     for (let i = 0; i < count; i++) {
@@ -174,7 +174,7 @@ export default function LoadingScreen() {
         ref={wordRef}
         className="absolute inset-0 flex items-center justify-center opacity-0"
       >
-        <span className="font-[family-name:var(--font-heading)] text-3xl sm:text-5xl font-bold tracking-[0.45em] text-white/85">
+        <span className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl md:text-5xl font-bold tracking-[0.3em] sm:tracking-[0.45em] text-white/85">
           SURAG<span className="text-electric-blue">VERSE</span>
         </span>
       </div>
@@ -182,11 +182,11 @@ export default function LoadingScreen() {
       {/* SCENE 02 status + progress line (not a % loader) */}
       <p
         ref={statusRef}
-        className="absolute bottom-24 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.4em] text-secondary-text font-mono opacity-0"
+        className="absolute bottom-20 sm:bottom-24 left-1/2 -translate-x-1/2 text-[9px] sm:text-[10px] tracking-[0.3em] sm:tracking-[0.4em] text-secondary-text font-mono opacity-0"
       >
         INITIALIZING DIGITAL UNIVERSE
       </p>
-      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 w-52 sm:w-72 h-px bg-white/10 overflow-hidden">
+      <div className="absolute bottom-12 sm:bottom-16 left-1/2 -translate-x-1/2 w-40 sm:w-52 lg:w-72 h-px bg-white/10 overflow-hidden">
         <div
           ref={progressRef}
           className="h-full w-full origin-left scale-x-0 bg-gradient-to-r from-electric-blue via-purple to-neon-green"
@@ -200,7 +200,7 @@ export default function LoadingScreen() {
       >
         <div
           ref={posterRef}
-          className="relative h-[62vh] sm:h-[74vh] aspect-[1600/1987] overflow-hidden will-change-transform"
+          className="relative h-[50vh] sm:h-[62vh] lg:h-[74vh] aspect-[1600/1987] overflow-hidden will-change-transform"
           style={{ clipPath: "inset(0 100% 0 0)" }}
         >
           <Image
@@ -219,10 +219,10 @@ export default function LoadingScreen() {
             ref={thisIsRef}
             className="absolute inset-x-0 bottom-8 flex flex-col items-center gap-2 opacity-0"
           >
-            <span className="text-[10px] tracking-[0.5em] text-secondary-text font-mono">
+            <span className="text-[9px] sm:text-[10px] tracking-[0.4em] sm:tracking-[0.5em] text-secondary-text font-mono">
               THIS IS
             </span>
-            <span className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl font-bold tracking-[0.25em] text-white">
+            <span className="font-[family-name:var(--font-heading)] text-xl sm:text-2xl md:text-3xl font-bold tracking-[0.2em] sm:tracking-[0.25em] text-white">
               SURAG<span className="text-electric-blue">VERSE</span>
             </span>
           </div>
@@ -246,7 +246,7 @@ export default function LoadingScreen() {
           window.dispatchEvent(new Event(INTRO_EVENT));
           setHidden(true);
         }}
-        className="absolute bottom-5 right-5 z-10 px-3 py-1.5 text-[10px] tracking-[0.25em] text-secondary-text border border-glass-border rounded-full hover:text-white hover:border-white/30 transition-colors"
+        className="absolute bottom-4 sm:bottom-5 right-4 sm:right-5 z-10 px-3 py-1.5 text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] text-secondary-text border border-glass-border rounded-full hover:text-white hover:border-white/30 transition-colors min-h-[40px]"
       >
         SKIP INTRO
       </button>

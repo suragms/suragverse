@@ -82,10 +82,10 @@ export default function HeroSection() {
       </div>
 
       {/* Cinematic gradient overlays */}
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/70 via-transparent to-background/85" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/60 sm:from-background/70 via-transparent to-background/70 sm:to-background/85" />
       <motion.div
-        className="pointer-events-none absolute z-[1] rounded-full blur-[140px]"
-        style={{ x: glowX, y: glowY, width: 640, height: 640, left: "60%", top: "8%" }}
+        className="pointer-events-none absolute z-[1] rounded-full blur-[80px] sm:blur-[140px]"
+        style={{ x: glowX, y: glowY, width: "min(640px, 80vw)", height: "min(640px, 80vw)", left: "60%", top: "8%" }}
         animate={{ opacity: started ? 1 : 0 }}
         transition={{ duration: 1.5 }}
         aria-hidden="true"
@@ -122,7 +122,7 @@ export default function HeroSection() {
             className="relative w-full max-w-[260px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[440px]"
           >
             <div
-              className="absolute -inset-6 rounded-[2rem] opacity-70 blur-3xl"
+              className="absolute -inset-4 sm:-inset-6 rounded-[1.5rem] sm:rounded-[2rem] opacity-70 blur-2xl sm:blur-3xl"
               aria-hidden="true"
               style={{
                 background:
@@ -167,7 +167,7 @@ export default function HeroSection() {
             experiences.
           </p>
 
-          <div className="flex flex-wrap justify-center lg:justify-start gap-x-4 gap-x-6 gap-y-2 mb-7 sm:mb-9 font-mono text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.28em] text-white/70">
+          <div className="flex flex-wrap justify-center lg:justify-start gap-x-4 gap-y-2 mb-7 sm:mb-9 font-mono text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.28em] text-white/70">
             {roles.map((role) => (
               <span key={role} className="flex items-center gap-2">
                 <span className="w-1 h-1 rounded-full bg-electric-blue" />

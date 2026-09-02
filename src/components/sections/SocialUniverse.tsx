@@ -7,19 +7,19 @@ import TiltCard from "@/components/ui/TiltCard";
 
 export default function SocialUniverse() {
   return (
-    <section className="relative py-32 sm:py-40 px-6 overflow-hidden border-t border-glass-border">
+    <section className="relative py-20 sm:py-32 lg:py-40 px-4 sm:px-6 overflow-hidden border-t border-glass-border">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-electric-blue/5 blur-[120px]" />
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[400px] sm:w-[600px] h-[200px] sm:h-[300px] rounded-full bg-electric-blue/5 blur-[100px] sm:blur-[120px]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Heading */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-14 sm:mb-20">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-xs tracking-[0.5em] text-electric-blue mb-4 font-mono"
+            className="text-[10px] sm:text-xs tracking-[0.4em] sm:tracking-[0.5em] text-electric-blue mb-4 font-mono"
           >
             SOCIAL UNIVERSE
           </motion.p>
@@ -28,7 +28,7 @@ export default function SocialUniverse() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[0.95]"
+            className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-[0.95]"
           >
             CONNECT ACROSS
             <br />
@@ -37,7 +37,7 @@ export default function SocialUniverse() {
         </div>
 
         {/* Social cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {socials.map((social, i) => {
             const Icon = social.icon;
             return (

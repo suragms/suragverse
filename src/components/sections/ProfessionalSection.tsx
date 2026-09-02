@@ -39,9 +39,9 @@ const pillars = [
  */
 export default function ProfessionalSection() {
   return (
-    <section className="relative py-32 sm:py-40 px-6 overflow-hidden border-t border-glass-border">
+    <section className="relative py-20 sm:py-32 lg:py-40 px-4 sm:px-6 overflow-hidden border-t border-glass-border">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-14 lg:gap-20 items-center mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-10 sm:gap-14 lg:gap-20 items-center mb-14 sm:mb-20">
           {/* Portrait card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.94 }}
@@ -70,7 +70,7 @@ export default function ProfessionalSection() {
               />
             </div>
             <div
-              className="absolute -inset-3 -z-10 rounded-[2rem] opacity-60 blur-3xl"
+              className="absolute -inset-2 sm:-inset-3 -z-10 rounded-[1.5rem] sm:rounded-[2rem] opacity-60 blur-2xl sm:blur-3xl"
               aria-hidden="true"
               style={{
                 background:
@@ -94,7 +94,7 @@ export default function ProfessionalSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[0.92] mb-6"
+              className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-[0.92] mb-4 sm:mb-6"
             >
               MORE THAN
               <br />
@@ -126,7 +126,7 @@ export default function ProfessionalSection() {
         </div>
 
         {/* Service pillars */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
           {pillars.map((pillar, i) => (
             <motion.div
               key={pillar.title}

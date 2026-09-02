@@ -109,7 +109,7 @@ export default function EnquiryForm() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[0.95]"
+            className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95]"
           >
             <span className="gradient-text">START A CONVERSATION.</span>
           </motion.h2>
@@ -120,7 +120,7 @@ export default function EnquiryForm() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
-          className="glass-strong rounded-3xl p-6 sm:p-10"
+          className="glass-strong rounded-3xl p-5 sm:p-8 lg:p-10"
         >
           <AnimatePresence mode="wait">
             {status === "success" ? (

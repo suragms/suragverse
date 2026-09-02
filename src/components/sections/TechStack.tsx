@@ -57,15 +57,15 @@ export default function TechStack() {
   const ref = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="relative py-32 sm:py-40 px-6">
+    <section className="relative py-20 sm:py-32 lg:py-40 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-16 text-center">
+        <div className="mb-12 sm:mb-16 text-center">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-xs tracking-[0.5em] text-electric-blue mb-4 font-mono"
+            className="text-[10px] sm:text-xs tracking-[0.4em] sm:tracking-[0.5em] text-electric-blue mb-4 font-mono"
           >
             TECHNOLOGY
           </motion.p>
@@ -74,7 +74,7 @@ export default function TechStack() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[0.95]"
+            className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-[0.95]"
           >
             THE STACK
             <br />
@@ -85,7 +85,7 @@ export default function TechStack() {
         {/* Tech grid */}
         <div
           ref={ref}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 relative"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 relative"
         >
           {technologies.map((tech, i) => (
             <TechBadge key={tech.name} tech={tech} index={i} />

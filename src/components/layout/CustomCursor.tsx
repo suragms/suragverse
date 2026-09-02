@@ -67,8 +67,8 @@ export default function CustomCursor() {
     };
   }, [cursorX, cursorY]);
 
-  // Don't render on mobile
-  if (typeof window !== "undefined" && window.innerWidth < 1024) return null;
+  // Don't render on mobile or tablet
+  if (typeof window !== "undefined" && (window.innerWidth < 1024 || window.matchMedia("(pointer: coarse)").matches)) return null;
 
   return (
     <div className="fixed inset-0 z-[9998] pointer-events-none hidden lg:block">

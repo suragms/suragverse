@@ -58,9 +58,9 @@ export default function AboutSection() {
   const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
   return (
-    <section id="about" ref={ref} className="relative py-32 sm:py-40 px-6">
+    <section id="about" ref={ref} className="relative py-20 sm:py-32 lg:py-40 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           {/* Image / Visual */}
           <motion.div style={{ y }} className="relative order-2 lg:order-1">
             {/* Primary — the real human portrait */}
@@ -96,8 +96,8 @@ export default function AboutSection() {
               />
 
               {/* Corner accents */}
-              <div className="absolute top-6 left-6 w-8 h-8 border-l border-t border-white/10 pointer-events-none" />
-              <div className="absolute bottom-6 right-6 w-8 h-8 border-r border-b border-white/10 pointer-events-none" />
+              <div className="absolute top-4 sm:top-6 left-4 sm:left-6 w-6 sm:w-8 h-6 sm:h-8 border-l border-t border-white/10 pointer-events-none" />
+              <div className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 w-6 sm:w-8 h-6 sm:h-8 border-r border-b border-white/10 pointer-events-none" />
             </div>
 
             {/* Secondary — AI contemplative portrait (artistic layer) */}
@@ -106,7 +106,7 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="absolute -bottom-8 -right-4 sm:-right-8 w-36 sm:w-44 aspect-[4/5] rounded-2xl overflow-hidden border border-glass-border shadow-2xl"
+              className="absolute -bottom-6 -right-2 sm:-right-8 w-28 sm:w-36 md:w-44 aspect-[4/5] rounded-2xl overflow-hidden border border-glass-border shadow-2xl"
             >
               <Image
                 src={brandImages.aboutAi.src}
@@ -137,7 +137,7 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[0.95] mb-8"
+              className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] mb-6 sm:mb-8"
             >
               THE MIND
               <br />

@@ -128,15 +128,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 export default function FeaturedProjects() {
   return (
-    <section id="websites" className="relative py-32 sm:py-40 px-6">
+    <section id="websites" className="relative py-20 sm:py-32 lg:py-40 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-16 text-center">
+        <div className="mb-12 sm:mb-16 text-center">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-xs tracking-[0.5em] text-electric-blue mb-4 font-mono"
+            className="text-[10px] sm:text-xs tracking-[0.4em] sm:tracking-[0.5em] text-electric-blue mb-4 font-mono"
           >
             FEATURED CREATIONS
           </motion.p>
@@ -145,7 +145,7 @@ export default function FeaturedProjects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[0.95]"
+            className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-[0.95]"
           >
             EXPLORE MY
             <br />
@@ -154,7 +154,7 @@ export default function FeaturedProjects() {
         </div>
 
         {/* Project Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {featuredProjects.map((project, i) => (
             <ProjectCard key={project.slug} project={project} index={i} />
           ))}

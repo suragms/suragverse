@@ -60,15 +60,15 @@ export default function UniverseSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="universe" className="relative py-32 sm:py-40 px-6">
+    <section id="universe" className="relative py-20 sm:py-32 lg:py-40 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-20 text-center">
+        <div className="mb-14 sm:mb-20 text-center">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-xs tracking-[0.5em] text-electric-blue mb-4 font-mono"
+            className="text-[10px] sm:text-xs tracking-[0.4em] sm:tracking-[0.5em] text-electric-blue mb-4 font-mono"
           >
             THE DIGITAL UNIVERSE
           </motion.p>
@@ -77,7 +77,7 @@ export default function UniverseSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[0.95]"
+            className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-[0.95]"
           >
             ONE CREATOR.
             <br />
@@ -101,7 +101,7 @@ export default function UniverseSection() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4"
         >
           {categories.map((cat) => (
             <motion.div

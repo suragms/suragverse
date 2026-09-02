@@ -34,6 +34,8 @@ export default function MagneticButton({
   const springY = useSpring(y, { stiffness: 150, damping: 15 });
 
   const handleMouseMove = (e: React.MouseEvent) => {
+    // Skip magnetic effect on touch devices
+    if (window.matchMedia("(pointer: coarse)").matches) return;
     const rect = ref.current?.getBoundingClientRect();
     if (!rect) return;
     const offsetX = e.clientX - (rect.left + rect.width / 2);

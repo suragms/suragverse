@@ -21,11 +21,11 @@ export default function CTASection() {
   };
 
   return (
-    <section ref={ref} className="relative py-32 sm:py-40 px-6 overflow-hidden">
+    <section ref={ref} className="relative py-20 sm:py-32 lg:py-40 px-4 sm:px-6 overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-electric-blue/5 blur-[120px]" />
-        <div className="absolute top-1/3 left-1/3 w-[300px] h-[300px] rounded-full bg-purple/5 blur-[100px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] rounded-full bg-electric-blue/5 blur-[80px] sm:blur-[120px]" />
+        <div className="absolute top-1/3 left-1/3 w-[150px] sm:w-[300px] h-[150px] sm:h-[300px] rounded-full bg-purple/5 blur-[60px] sm:blur-[100px]" />
       </div>
 
       <motion.div
@@ -46,7 +46,7 @@ export default function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-[family-name:var(--font-heading)] text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight leading-[0.85] mb-12"
+          className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-6xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[0.85] mb-8 sm:mb-12"
         >
           READY TO
           <br />

@@ -216,11 +216,14 @@ function Scene({ mouseX, mouseY, onObjectClick }: { mouseX: number; mouseY: numb
 }
 
 export default function HeroScene({ mouseX = 0, mouseY = 0, onObjectClick }: { mouseX?: number; mouseY?: number; onObjectClick?: () => void }) {
+  // Limit DPR to 2 on all devices for performance
+  const dpr = typeof window !== "undefined" ? Math.min(window.devicePixelRatio, 2) : 1;
+
   return (
     <Canvas
       camera={{ position: [0, 0, 6], fov: 45 }}
-      dpr={[1, 2]}
-      gl={{ antialias: true, alpha: true }}
+      dpr={[1, dpr]}
+      gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       style={{ background: "transparent" }}
     >
       <Scene mouseX={mouseX} mouseY={mouseY} onObjectClick={onObjectClick} />

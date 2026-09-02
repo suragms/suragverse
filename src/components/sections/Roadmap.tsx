@@ -20,15 +20,15 @@ const statusConfig: Record<
 
 export default function Roadmap() {
   return (
-    <section className="relative py-32 sm:py-40 px-6">
+    <section className="relative py-20 sm:py-32 lg:py-40 px-4 sm:px-6">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="mb-20 text-center">
+        <div className="mb-14 sm:mb-20 text-center">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-xs tracking-[0.5em] text-electric-blue mb-4 font-mono"
+            className="text-[10px] sm:text-xs tracking-[0.4em] sm:tracking-[0.5em] text-electric-blue mb-4 font-mono"
           >
             NOW BUILDING
           </motion.p>
@@ -37,7 +37,7 @@ export default function Roadmap() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[0.95]"
+            className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-[0.95]"
           >
             THE FUTURE IS
             <br />
@@ -48,7 +48,7 @@ export default function Roadmap() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-electric-blue/30 via-purple/30 to-transparent" />
+          <div className="absolute left-5 sm:left-6 md:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-electric-blue/30 via-purple/30 to-transparent" />
 
           {projects.map((project, i) => {
             const config = statusConfig[project.status];
@@ -61,17 +61,17 @@ export default function Roadmap() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className={`relative flex items-center gap-6 mb-12 md:mb-16 ${
+                className={`relative flex items-center gap-4 sm:gap-6 mb-10 sm:mb-12 md:mb-16 ${
                   isLeft ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
                 {/* Dot on line */}
-                <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full border-2 z-10"
+                <div className="absolute left-5 sm:left-6 md:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full border-2 z-10"
                   style={{ borderColor: config.color, backgroundColor: "#050505" }}
                 />
 
                 {/* Content card */}
-                <div className={`ml-14 md:ml-0 md:w-[calc(50%-40px)] ${isLeft ? "md:pr-0" : "md:pl-0"}`}>
+                <div className={`ml-10 sm:ml-12 md:ml-0 md:w-[calc(50%-40px)] ${isLeft ? "md:pr-0" : "md:pl-0"}`}>
                   <div className="glass rounded-2xl p-6 group hover:border-white/10 transition-all duration-300">
                     {/* Status badge */}
                     <div
