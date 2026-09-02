@@ -137,7 +137,7 @@ Accents are used sparingly; the design stays mostly elegant black & white.
 
 ---
 
-## ✨ Stack
+## Stack
 
 Next.js 16 · React 19 · TypeScript · Tailwind CSS · Three.js ·
 React Three Fiber · Drei · Framer Motion · GSAP · Lenis · Lucide
