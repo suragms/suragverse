@@ -132,7 +132,7 @@ h1, h2, h3, h4, h5, h6 {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.55), rgba(0,217,255,0.35));
+  background: linear-gradient(135deg, rgba(255,255,255,0.55), rgba(56,189,248,0.4));
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -181,7 +181,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Focus visible styles */
 :focus-visible {
-  outline: 2px solid #00D9FF;
+  outline: 2px solid #38BDF8;
   outline-offset: 2px;
 }
 
@@ -333,7 +333,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   inset: 0;
   background:
     linear-gradient(180deg, rgba(5,5,5,0.25), transparent 30%, transparent 70%, rgba(5,5,5,0.55)),
-    radial-gradient(120% 90% at 50% 100%, rgba(0,217,255,0.12), transparent 60%);
+    radial-gradient(120% 90% at 50% 100%, rgba(56,189,248,0.14), transparent 60%);
   pointer-events: none;
 }
 
@@ -406,9 +406,3 @@ h1, h2, h3, h4, h5, h6, p, span {
   }
 }
 
-/* Prevent body scroll when mobile menu is open */
-body.menu-open {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-}

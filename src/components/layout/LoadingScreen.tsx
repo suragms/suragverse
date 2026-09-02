@@ -236,7 +236,7 @@ export default function LoadingScreen() {
         aria-hidden="true"
         style={{
           background:
-            "radial-gradient(circle at 50% 45%, rgba(0,217,255,0.12), transparent 55%)",
+            "radial-gradient(circle at 50% 45%, rgba(56,189,248,0.12), transparent 55%)",
         }}
       />
 

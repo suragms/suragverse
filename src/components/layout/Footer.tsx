@@ -36,7 +36,7 @@ export default function Footer() {
       {/* Gradient line */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-electric-blue/30 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-8 sm:pt-20 sm:pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-[calc(120px+env(safe-area-inset-bottom,0px))] sm:pt-20 sm:pb-8">
         {/* Mobile: clean vertical stack */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-8 lg:gap-8">
           {/* Brand */}

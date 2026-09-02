@@ -5,6 +5,7 @@ import LoadingScreen from "@/components/layout/LoadingScreen";
 import CustomCursor from "@/components/layout/CustomCursor";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import Navbar from "@/components/layout/Navbar";
+import MobileBottomNav from "@/components/navigation/MobileBottomNav";
 import HeroSection from "@/components/sections/HeroSection";
 import WhoAmISection from "@/components/sections/WhoAmISection";
 import ScrollStory from "@/components/sections/ScrollStory";
@@ -26,6 +27,7 @@ export default function Home() {
       <ScrollProgress />
       <div className="noise-overlay">
         <Navbar />
+        <MobileBottomNav />
         <main>
           {/* 01 — HELLO, I'M SURAG */}
           <HeroSection />
