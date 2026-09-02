@@ -15,22 +15,22 @@ export const identityPoints: IdentityPoint[] = [
   {
     index: "01",
     label: "Creator",
-    detail: "I turn ideas into things that exist and matter.",
+    detail: "I enjoy turning ideas into meaningful digital experiences.",
   },
   {
     index: "02",
-    label: "Learner",
-    detail: "Curiosity drives me — I never stop asking how and why.",
+    label: "Technologist",
+    detail: "Technology is both my profession and a world I continue exploring.",
   },
   {
     index: "03",
-    label: "Technologist",
-    detail: "Technology is my medium for building and adapting.",
+    label: "Learner",
+    detail: "I believe growth comes from curiosity and continuous learning.",
   },
   {
     index: "04",
-    label: "Dreamer",
-    detail: "I believe in possibilities others haven't seen yet.",
+    label: "Builder",
+    detail: "I enjoy transforming concepts into real digital experiences.",
   },
 ];
 

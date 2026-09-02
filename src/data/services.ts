@@ -30,23 +30,18 @@ export const services: Service[] = [
     description: "Premium, fast, immersive websites built to convert and impress.",
   },
   {
-    icon: "lifebuoy",
-    title: "Business Support",
-    description: "Ongoing technical guidance and digital assistance for growing teams.",
-  },
-  {
     icon: "growth",
-    title: "Business Development",
-    description: "Turning ideas into momentum — strategy, scoping, and launch support.",
-  },
-  {
-    icon: "drafting",
-    title: "Architectural Consultations",
-    description: "Blueprinting products and systems before a single line of code is written.",
+    title: "Business Support & Development",
+    description: "Technical guidance and momentum for growing teams — strategy, scoping, and support.",
   },
   {
     icon: "network",
     title: "Technology Collaboration",
     description: "Partnering on research, innovation, and emerging technology.",
+  },
+  {
+    icon: "drafting",
+    title: "Architectural Consultations",
+    description: "Blueprinting products and systems before a single line of code is written.",
   },
 ];

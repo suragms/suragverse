@@ -220,10 +220,10 @@ export default function LoadingScreen() {
             className="absolute inset-x-0 bottom-8 flex flex-col items-center gap-2 opacity-0"
           >
             <span className="text-[9px] sm:text-[10px] tracking-[0.4em] sm:tracking-[0.5em] text-secondary-text font-mono">
-              THE STORY BEHIND THE CREATOR
+              THE DIGITAL STORY OF
             </span>
             <span className="font-[family-name:var(--font-heading)] text-xl sm:text-2xl md:text-3xl font-bold tracking-[0.2em] sm:tracking-[0.25em] text-white">
-              SURAG<span className="text-electric-blue">VERSE</span>
+              SURAG M S<span className="text-electric-blue">.</span>
             </span>
           </div>
         </div>

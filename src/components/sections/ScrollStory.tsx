@@ -150,8 +150,26 @@ function Chapter({
 }
 
 export default function ScrollStory() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
   return (
-    <section id="journey" className="relative px-4 sm:px-6 py-16 sm:py-24 lg:py-32">
+    <section
+      id="journey"
+      ref={sectionRef}
+      className="relative px-4 sm:px-6 py-16 sm:py-24 lg:py-32"
+    >
+      {/* Subtle vertical progress line */}
+      <div className="hidden md:block absolute left-6 lg:left-12 top-0 bottom-0 w-px bg-white/10" aria-hidden="true">
+        <motion.div
+          style={{ scaleY: scrollYProgress }}
+          className="origin-top w-full h-full bg-electric-blue/50"
+        />
+      </div>
+
       <div className="max-w-6xl mx-auto">
         <div className="mb-16 sm:mb-24 text-center">
           <motion.p

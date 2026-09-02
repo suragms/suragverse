@@ -5,10 +5,11 @@
   --color-background: #050505;
   --color-foreground: #F5F5F5;
   --color-secondary-bg: #0B0B0D;
-  --color-secondary-text: #9A9A9A;
-  --color-electric-blue: #00D9FF;
+  --color-secondary-text: #A1A1AA;
+  --color-electric-blue: #38BDF8;
   --color-soft-blue: #A8C5D4;
   --color-warm-gray: #6B6B6B;
+  --color-warm-neutral: #D6D3D1;
   --color-purple: #7C3AED;
   --color-neon-green: #39FF88;
   --color-glass: rgba(255, 255, 255, 0.05);

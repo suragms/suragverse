@@ -45,8 +45,9 @@ export default function FutureSection() {
           transition={{ delay: 0.2 }}
           className="text-secondary-text text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-6"
         >
-          Every project teaches me something new. Every challenge reshapes how I
-          think. The work is never finished — and that&apos;s exactly the point.
+          The journey is still being written. There are more ideas to explore,
+          more technologies to understand, more experiences to create, and more
+          possibilities ahead.
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 20 }}

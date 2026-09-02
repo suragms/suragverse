@@ -52,11 +52,11 @@ export default function StatusSection() {
               <span className="relative mt-1 flex-shrink-0" aria-hidden="true">
                 <span
                   className="block w-2.5 h-2.5 rounded-full"
-                  style={{ backgroundColor: item.color || "#00D9FF" }}
+                  style={{ backgroundColor: item.color || "#38BDF8" }}
                 />
                 <span
                   className="absolute inset-0 w-2.5 h-2.5 rounded-full animate-ping opacity-40"
-                  style={{ backgroundColor: item.color || "#00D9FF" }}
+                  style={{ backgroundColor: item.color || "#38BDF8" }}
                 />
               </span>
               <div>

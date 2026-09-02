@@ -10,8 +10,8 @@ import { socials } from "@/data/socials";
 
 const availability = [
   "Freelance Projects",
+  "Applied AI Work",
   "Full-Stack Development",
-  "Applied AI",
   "AI Automation",
   "Business Support",
   "Business Development",
@@ -90,7 +90,7 @@ export default function ConnectSection() {
             transition={{ duration: 0.9, delay: 0.1 }}
             className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[0.9] mb-6"
           >
-            LET&apos;S CREATE
+            LET&apos;S BUILD
             <br />
             <span className="gradient-text">WHAT&apos;S NEXT.</span>
           </motion.h2>
@@ -112,7 +112,7 @@ export default function ConnectSection() {
             className="mb-10"
           >
             <p className="text-[10px] tracking-[0.4em] text-secondary-text font-mono mb-4 text-center lg:text-left">
-              OPEN FOR
+              DM FOR ENQUIRIES
             </p>
             <div className="flex flex-wrap justify-center lg:justify-start gap-2">
               {availability.map((item) => (

@@ -10,5 +10,5 @@ export { storyChapters as journeyChapters };
 /** Section intro shown above the chapters. */
 export const journeyIntro = {
   eyebrow: "MY JOURNEY",
-  heading: ["EVERY JOURNEY", "HAS A STORY."],
+  heading: ["THE JOURNEY", "SO FAR."],
 };

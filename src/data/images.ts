@@ -167,7 +167,7 @@ export const storyChapters: StoryChapter[] = [
   {
     id: "chapter-01",
     index: "01",
-    headline: ["CURIOSITY."],
+    headline: ["IT STARTED", "WITH CURIOSITY."],
     text: "It begins with a pull toward how things work — and toward what could be.",
     image: {
       id: "ws-01",
@@ -184,7 +184,7 @@ export const storyChapters: StoryChapter[] = [
   {
     id: "chapter-02",
     index: "02",
-    headline: ["LEARNING."],
+    headline: ["THEN CAME", "THE LEARNING."],
     text: "Every new tool, every new idea — a step forward. Learning never stops.",
     image: {
       id: "ws-02",
@@ -201,7 +201,7 @@ export const storyChapters: StoryChapter[] = [
   {
     id: "chapter-03",
     index: "03",
-    headline: ["CREATING."],
+    headline: ["IDEAS STARTED", "BECOMING REAL."],
     text: "Turning ideas into real things — technology becomes meaningful when it solves real problems.",
     image: {
       id: "ws-03",
@@ -218,7 +218,7 @@ export const storyChapters: StoryChapter[] = [
   {
     id: "chapter-04",
     index: "04",
-    headline: ["GROWING."],
+    headline: ["AND THE JOURNEY", "CONTINUES."],
     text: "Every build makes the next one better. The journey keeps moving forward.",
     image: {
       id: "ws-04",

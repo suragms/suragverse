@@ -69,7 +69,7 @@ export default function WhoAmISection() {
             >
               MORE THAN
               <br />
-              <span className="gradient-text">WHAT I DO.</span>
+              <span className="gradient-text">A JOB TITLE.</span>
             </motion.h2>
 
             {/* Personal introduction */}

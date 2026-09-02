@@ -118,7 +118,11 @@ export default function HeroSection() {
               transition={{ duration: 0.9, delay: 0.25, ease: EASE }}
               className="font-[family-name:var(--font-heading)] text-lg sm:text-2xl md:text-3xl font-semibold tracking-tight text-soft-blue mt-5 sm:mt-7"
             >
-              WELCOME TO MY UNIVERSE.
+              A CREATOR
+              <br />
+              BUILDING WITH
+              <br />
+              TECHNOLOGY.
             </motion.p>
           </motion.div>
 
@@ -167,8 +171,9 @@ export default function HeroSection() {
             className="order-3 lg:col-span-12 mt-2 lg:mt-6 text-center lg:text-left"
           >
             <p className="text-secondary-text text-base sm:text-lg lg:text-xl max-w-2xl mx-auto lg:mx-0 mb-7 sm:mb-9 leading-relaxed">
-              A journey through technology, creativity, challenges, growth, and
-              the ideas that continue to shape who I am.
+              I explore ideas through technology, creativity, and digital
+              experiences — continuously learning, building, and discovering
+              what is possible.
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-x-5 gap-y-2 mb-8 sm:mb-10 font-mono text-[9px] sm:text-[10px] tracking-[0.22em] text-white/70">

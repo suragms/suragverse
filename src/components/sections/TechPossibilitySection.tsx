@@ -65,7 +65,7 @@ export default function TechPossibilitySection() {
         >
           TECHNOLOGY
           <br />
-          <span className="gradient-text">CREATES POSSIBILITIES.</span>
+          <span className="gradient-text">OPENS POSSIBILITIES.</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}

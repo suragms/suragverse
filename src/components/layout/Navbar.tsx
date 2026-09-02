@@ -7,7 +7,7 @@ import { scrollToSection } from "@/lib/lenis";
 
 const navLinks = [
   { label: "HOME", href: "#home" },
-  { label: "MY STORY", href: "#my-story" },
+  { label: "STORY", href: "#my-story" },
   { label: "JOURNEY", href: "#journey" },
   { label: "WHAT I DO", href: "#what-i-do" },
   { label: "MY WORK", href: "#my-work" },
@@ -228,7 +228,9 @@ export default function Navbar() {
                     SURAG M S
                   </p>
                   <p className="mt-2 text-[10px] tracking-[0.25em] text-secondary-text font-mono leading-relaxed">
-                    AI ENGINEER · FULL-STACK DEVELOPER · DIGITAL CREATOR
+                    APPLIED AI ENGINEER
+                    <br />
+                    DIGITAL CREATOR
                   </p>
                 </div>
               </motion.div>

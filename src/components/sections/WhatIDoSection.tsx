@@ -39,9 +39,9 @@ export default function WhatIDoSection() {
               transition={{ delay: 0.1 }}
               className="font-[family-name:var(--font-heading)] text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[0.88] mb-8"
             >
-              WHAT
+              HOW I
               <br />
-              <span className="gradient-text">I DO.</span>
+              <span className="gradient-text">CREATE VALUE.</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}

@@ -19,43 +19,43 @@ export interface StatusConfig {
 }
 
 export const status: StatusConfig = {
-  heading: ["WHERE I AM", "RIGHT NOW."],
+  heading: ["RIGHT NOW."],
   items: [
     {
       id: "open-opportunities",
       label: "OPEN TO SELECTED OPPORTUNITIES",
       detail: "Considering roles, projects, and collaborations that align with my focus.",
-      color: "#00D9FF",
+      color: "#38BDF8",
     },
     {
       id: "freelance",
-      label: "AVAILABLE FOR FREELANCE COLLABORATION",
+      label: "AVAILABLE FOR FREELANCE PROJECTS",
       detail: "Taking on meaningful freelance and contract builds.",
+      color: "#C9D6E0",
+    },
+    {
+      id: "collaborations",
+      label: "OPEN TO COLLABORATIONS",
+      detail: "Open to teaming up on technology, AI, and creative ideas.",
       color: "#C9D6E0",
     },
     {
       id: "building-ai",
       label: "BUILDING WITH AI",
       detail: "Exploring applied AI and intelligent automation.",
-      color: "#00D9FF",
+      color: "#38BDF8",
     },
     {
       id: "exploring-automation",
       label: "EXPLORING AI AUTOMATION",
       detail: "Experimenting with intelligent workflows that save time and scale effort.",
-      color: "#9A9A9A",
-    },
-    {
-      id: "collaboration",
-      label: "OPEN TO COLLABORATION",
-      detail: "Open to teaming up on technology, AI, and creative ideas.",
-      color: "#C9D6E0",
+      color: "#A1A1AA",
     },
     {
       id: "learning",
       label: "CONTINUOUSLY LEARNING",
       detail: "Growing every day — technology never stands still.",
-      color: "#9A9A9A",
+      color: "#A1A1AA",
     },
   ],
 };

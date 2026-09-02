@@ -83,10 +83,10 @@ function GlowingSphere({ onClick }: { onClick?: () => void }) {
       >
         <sphereGeometry args={[1.2, 48, 48]} />
         <meshStandardMaterial
-          color="#00D9FF"
+          color="#38BDF8"
           roughness={0.3}
           metalness={0.7}
-          emissive="#00D9FF"
+          emissive="#38BDF8"
           emissiveIntensity={0.15}
         />
       </mesh>
@@ -104,7 +104,7 @@ function GlowingSphere({ onClick }: { onClick?: () => void }) {
       <mesh ref={ringRef}>
         <torusGeometry args={[1.9, 0.015, 2, 128]} />
         <meshBasicMaterial
-          color="#00D9FF"
+          color="#38BDF8"
           transparent
           opacity={0.35}
         />
@@ -191,7 +191,7 @@ function Scene({ mouseX, mouseY, onObjectClick }: { mouseX: number; mouseY: numb
       <ambientLight intensity={0.5} />
       <directionalLight position={[5, 5, 5]} intensity={0.8} />
       <pointLight position={[-5, -5, 0]} color="#A8C5D4" intensity={1} />
-      <pointLight position={[0, 5, 0]} color="#00D9FF" intensity={0.5} />
+      <pointLight position={[0, 5, 0]} color="#38BDF8" intensity={0.5} />
 
       <Stars
         radius={50}
@@ -206,10 +206,10 @@ function Scene({ mouseX, mouseY, onObjectClick }: { mouseX: number; mouseY: numb
       <group ref={groupRef}>
         <GlowingSphere onClick={onObjectClick} />
         <Particles count={300} />
-        <FloatingShape position={[-4, 1.5, -2]} color="#00D9FF" scale={0.4} rotationSpeed={0.5} />
+        <FloatingShape position={[-4, 1.5, -2]} color="#38BDF8" scale={0.4} rotationSpeed={0.5} />
         <FloatingShape position={[4, -1, -3]} color="#A8C5D4" scale={0.6} rotationSpeed={0.3} />
         <FloatingShape position={[3, 2, -1]} color="#C9D6E0" scale={0.3} rotationSpeed={0.7} />
-        <FloatingShape position={[-3, -1.5, -1]} color="#00D9FF" scale={0.35} rotationSpeed={0.4} />
+        <FloatingShape position={[-3, -1.5, -1]} color="#38BDF8" scale={0.35} rotationSpeed={0.4} />
       </group>
     </>
   );
