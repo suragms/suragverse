@@ -87,7 +87,7 @@ export default function EnquiryForm() {
   return (
     <section
       id="enquiry-form"
-      className="relative py-32 sm:py-40 px-6 overflow-hidden border-t border-glass-border"
+      className="relative py-24 sm:py-32 lg:py-40 px-4 sm:px-6 overflow-hidden border-t border-glass-border"
     >
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 left-1/4 w-[500px] h-[400px] rounded-full bg-purple/5 blur-[140px]" />
@@ -249,7 +249,7 @@ export default function EnquiryForm() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-white text-black text-sm font-bold tracking-widest hover:bg-electric-blue hover:text-black transition-all duration-500 hover:shadow-[0_0_40px_rgba(0,217,255,0.3)] disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="group w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-white text-black text-sm font-bold tracking-widest hover:bg-electric-blue hover:text-black transition-all duration-500 hover:shadow-[0_0_40px_rgba(0,217,255,0.3)] disabled:opacity-60 disabled:cursor-not-allowed min-h-[52px]"
                 >
                   {status === "submitting" ? (
                     <>

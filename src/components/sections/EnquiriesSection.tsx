@@ -71,7 +71,7 @@ export default function EnquiriesSection() {
   return (
     <section
       id="contact"
-      className="relative py-32 sm:py-40 px-6 overflow-hidden"
+      className="relative py-24 sm:py-32 lg:py-40 px-4 sm:px-6 overflow-hidden"
     >
       {/* 3D network background */}
       <div className="absolute inset-0 z-0 opacity-70">
@@ -88,12 +88,12 @@ export default function EnquiriesSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Heading */}
-        <div className="text-center mb-24">
+        <div className="text-center mb-16 sm:mb-24">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-xs tracking-[0.5em] text-electric-blue mb-6 font-mono"
+            className="text-[10px] sm:text-xs tracking-[0.4em] sm:tracking-[0.5em] text-electric-blue mb-4 sm:mb-6 font-mono"
           >
             ENQUIRIES &amp; COLLABORATIONS
           </motion.p>
@@ -102,7 +102,7 @@ export default function EnquiriesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-[family-name:var(--font-heading)] text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.9]"
+            className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[0.9]"
           >
             LET&apos;S BUILD
             <br />
