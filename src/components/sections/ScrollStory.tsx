@@ -70,14 +70,20 @@ function Chapter({
     target: ref,
     offset: ["start end", "end start"],
   });
-  const imgY = useTransform(scrollYProgress, [0, 1], [40, -40]);
-  const textY = useTransform(scrollYProgress, [0, 1], [20, -20]);
+  // Subtle Antigravity depth parallax
+  const imgY = useTransform(scrollYProgress, [0, 1], [32, -32]);
+  const textY = useTransform(scrollYProgress, [0, 1], [16, -16]);
+
+  // Subtle chapter exit scaling & fade
+  const chapterScale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.98, 1, 1, 0.98]);
+  const chapterOpacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0.7, 1, 1, 0.7]);
 
   const reversed = index % 2 === 1;
 
   return (
-    <div
+    <motion.div
       ref={ref}
+      style={{ scale: chapterScale, opacity: chapterOpacity }}
       className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center py-20 sm:py-28 lg:py-36"
     >
       {/* Image */}
@@ -86,7 +92,7 @@ function Chapter({
           style={{ y: imgY }}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-120px" }}
+          viewport={{ once: true, margin: "-100px" }}
           className="chapter-frame rounded-2xl"
         >
           <motion.div
@@ -124,28 +130,51 @@ function Chapter({
       <div className={reversed ? "lg:order-1" : ""}>
         <motion.div
           style={{ y: textY }}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-120px" }}
-          transition={{ duration: 0.8, delay: 0.15 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="font-mono text-sm text-electric-blue tracking-[0.3em]">
+          {/* Chapter badge */}
+          <motion.span
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="font-mono text-sm text-electric-blue tracking-[0.3em] inline-block"
+          >
             CHAPTER {chapter.index}
-          </span>
-          <h3 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.9] mt-5 mb-6 sm:mb-7">
+          </motion.span>
+
+          {/* Heading rises */}
+          <motion.h3
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
+            className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.9] mt-5 mb-6 sm:mb-7"
+          >
             {chapter.headline.map((line, i) => (
               <span key={i}>
                 {line}
                 <br />
               </span>
             ))}
-          </h3>
-          <p className="text-secondary-text text-base sm:text-lg leading-relaxed max-w-md">
+          </motion.h3>
+
+          {/* Description fades */}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="text-secondary-text text-base sm:text-lg leading-relaxed max-w-md"
+          >
             {chapter.text}
-          </p>
+          </motion.p>
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

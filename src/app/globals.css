@@ -198,6 +198,43 @@ a {
   text-decoration: none;
 }
 
+/* Antigravity Animated Link Underline */
+.link-antigravity {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.link-antigravity::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-electric-blue, #38BDF8);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-antigravity:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Antigravity Button Micro-motion */
+.btn-antigravity {
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+  will-change: transform;
+}
+@media (hover: hover) {
+  .btn-antigravity:hover {
+    transform: translateY(-3px) scale(1.02);
+  }
+  .btn-antigravity:active {
+    transform: translateY(0px) scale(0.98);
+  }
+}
+
 /* Prevent text overflow globally */
 h1, h2, h3, h4, h5, h6, p, span {
   overflow-wrap: break-word;

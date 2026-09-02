@@ -72,10 +72,10 @@ function Lightbox({
       {/* Image */}
       <motion.div
         key={image.id}
-        initial={{ opacity: 0, scale: 0.96 }}
+        initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.35 }}
+        exit={{ opacity: 0, scale: 0.97 }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         onClick={(e) => e.stopPropagation()}
         className="relative max-w-[92vw] max-h-[82vh]"
       >
@@ -191,11 +191,13 @@ export default function GallerySection() {
           {galleryImages.map((img: GalleryImage, i) => (
             <motion.button
               key={img.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 36, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.6, delay: (i % 3) * 0.08 }}
+              transition={{ duration: 0.7, delay: (i % 3) * 0.1, ease: [0.22, 1, 0.36, 1] }}
               onClick={() => setActive(i)}
+              data-cursor-card
+              data-cursor-label="VIEW"
               className="gallery-tile block w-full mb-3 sm:mb-4 break-inside-avoid group text-left"
               aria-label={`Open image: ${img.alt}`}
             >

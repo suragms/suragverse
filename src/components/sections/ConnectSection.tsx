@@ -47,13 +47,16 @@ export default function ConnectSection() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        {/* Portrait */}
+        {/* Portrait — slowly emerging through mask */}
         <div className="relative order-2 lg:order-1 lg:col-span-5 flex justify-center">
           <motion.div
+            initial={{ opacity: 0, scale: 1.08 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
             style={{ scale: imgScale, opacity: imgOpacity }}
             className="relative w-full max-w-[380px]"
           >
-            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-white/5">
+            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
               <Image
                 src={brandImages.cta.src}
                 alt={brandImages.cta.alt}
@@ -61,14 +64,14 @@ export default function ConnectSection() {
                 sizes="(max-width: 1024px) 90vw, 36vw"
                 loading="lazy"
                 quality={85}
-                className="object-cover"
+                className="object-cover transition-transform duration-[2s] ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-105"
                 style={{ objectPosition: brandImages.cta.objectPosition }}
               />
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
                   background:
-                    "linear-gradient(180deg, rgba(5,5,5,0.4), transparent 35%, transparent 70%, rgba(5,5,5,0.5))",
+                    "linear-gradient(180deg, rgba(5,5,5,0.35), transparent 35%, transparent 70%, rgba(5,5,5,0.6))",
                 }}
               />
             </div>
@@ -78,26 +81,32 @@ export default function ConnectSection() {
         {/* Copy + contact details */}
         <div className="order-1 lg:order-2 lg:col-span-7 text-center lg:text-left">
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="text-[10px] sm:text-xs tracking-[0.5em] text-electric-blue mb-6 font-mono"
           >
             LET&apos;S CONNECT
           </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 40 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.9, delay: 0.1 }}
-            className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[0.9] mb-6"
-          >
-            LET&apos;S CREATE
-            <br />
-            <span className="gradient-text">WHAT&apos;S NEXT.</span>
-          </motion.h2>
+
+          {/* Heading — rises slowly through mask */}
+          <div className="overflow-hidden pb-1 mb-6">
+            <motion.h2
+              initial={{ y: "110%", opacity: 0 }}
+              animate={inView ? { y: "0%", opacity: 1 } : {}}
+              transition={{ duration: 1.1, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+              className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[0.9]"
+            >
+              LET&apos;S CREATE
+              <br />
+              <span className="gradient-text">WHAT&apos;S NEXT.</span>
+            </motion.h2>
+          </div>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.25 }}
+            transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="text-secondary-text text-base sm:text-lg mb-8 max-w-lg mx-auto lg:mx-0"
           >
             Whether you have an idea, an opportunity, a collaboration, or simply
@@ -108,7 +117,7 @@ export default function ConnectSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.32 }}
+            transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="mb-10"
           >
             <p className="text-[10px] tracking-[0.4em] text-secondary-text font-mono mb-4 text-center lg:text-left">
@@ -126,16 +135,16 @@ export default function ConnectSection() {
             </div>
           </motion.div>
 
-          {/* Primary CTAs */}
+          {/* Primary CTAs — arrive last with purpose */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.35 }}
+            transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12"
           >
             <a
               href={contactInfo.emailHref}
-              className="group inline-flex items-center justify-center gap-3 px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-white !text-black text-xs sm:text-sm font-bold tracking-wider hover:bg-electric-blue hover:!text-black transition-colors duration-500 min-h-[48px] w-full sm:w-auto shadow-lg"
+              className="group inline-flex items-center justify-center gap-3 px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-white !text-black text-xs sm:text-sm font-bold tracking-wider hover:bg-electric-blue hover:!text-black transition-colors duration-500 min-h-[48px] w-full sm:w-auto shadow-lg btn-antigravity"
             >
               <Mail size={16} />
               START A CONVERSATION
@@ -148,7 +157,7 @@ export default function ConnectSection() {
               href={contactInfo.linktree}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 px-7 sm:px-9 py-3.5 sm:py-4 rounded-full border border-electric-blue/40 text-electric-blue text-xs sm:text-sm font-bold tracking-wider hover:bg-electric-blue/10 transition-all duration-500 min-h-[48px] w-full sm:w-auto"
+              className="group inline-flex items-center gap-3 px-7 sm:px-9 py-3.5 sm:py-4 rounded-full border border-electric-blue/40 text-electric-blue text-xs sm:text-sm font-bold tracking-wider hover:bg-electric-blue/10 transition-all duration-500 min-h-[48px] w-full sm:w-auto btn-antigravity"
             >
               VISIT MY DIGITAL HUB
               <ArrowUpRight

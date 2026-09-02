@@ -54,8 +54,10 @@ export default function StatusSection() {
                   className="block w-2.5 h-2.5 rounded-full"
                   style={{ backgroundColor: item.color || "#38BDF8" }}
                 />
-                <span
-                  className="absolute inset-0 w-2.5 h-2.5 rounded-full animate-ping opacity-40"
+                <motion.span
+                  animate={{ opacity: [0.7, 0.2, 0.7], scale: [1, 1.7, 1] }}
+                  transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut", delay: i * 0.25 }}
+                  className="absolute inset-0 rounded-full"
                   style={{ backgroundColor: item.color || "#38BDF8" }}
                 />
               </span>

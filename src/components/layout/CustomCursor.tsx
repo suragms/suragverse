@@ -2,40 +2,60 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useSpring } from "framer-motion";
+import { ANTIGRAVITY_SPRINGS } from "@/lib/motion";
 
 export default function CustomCursor() {
   const [visible, setVisible] = useState(false);
   const [hovering, setHovering] = useState(false);
   const [hoveringCard, setHoveringCard] = useState(false);
+  const [cardLabel, setCardLabel] = useState<string | null>(null);
 
-  const cursorX = useSpring(0, { stiffness: 500, damping: 40 });
-  const cursorY = useSpring(0, { stiffness: 500, damping: 40 });
+  // Inner dot — highly responsive tracking
+  const dotX = useSpring(0, ANTIGRAVITY_SPRINGS.cursorDot);
+  const dotY = useSpring(0, ANTIGRAVITY_SPRINGS.cursorDot);
+
+  // Outer orbital ring — smooth reduced-gravity lag
+  const ringX = useSpring(0, ANTIGRAVITY_SPRINGS.cursorRing);
+  const ringY = useSpring(0, ANTIGRAVITY_SPRINGS.cursorRing);
 
   const dotRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Only on desktop
+    // Only on desktop pointer devices without reduced motion preference
+    if (typeof window === "undefined") return;
     if (window.matchMedia("(pointer: coarse)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (window.innerWidth < 1024) return;
 
     const handleMove = (e: MouseEvent) => {
-      cursorX.set(e.clientX);
-      cursorY.set(e.clientY);
+      dotX.set(e.clientX);
+      dotY.set(e.clientY);
+      ringX.set(e.clientX);
+      ringY.set(e.clientY);
       setVisible(true);
     };
 
     const handleEnter = () => setVisible(true);
     const handleLeave = () => setVisible(false);
 
-    window.addEventListener("mousemove", handleMove);
+    window.addEventListener("mousemove", handleMove, { passive: true });
     document.addEventListener("mouseenter", handleEnter);
     document.addEventListener("mouseleave", handleLeave);
 
     // Detect hoverable elements
     const handleOverInteractive = () => setHovering(true);
     const handleOutInteractive = () => setHovering(false);
-    const handleOverCard = () => setHoveringCard(true);
-    const handleOutCard = () => setHoveringCard(false);
+
+    const handleOverCard = (e: Event) => {
+      setHoveringCard(true);
+      const target = e.currentTarget as HTMLElement;
+      const label = target.getAttribute("data-cursor-label");
+      setCardLabel(label || null);
+    };
+    const handleOutCard = () => {
+      setHoveringCard(false);
+      setCardLabel(null);
+    };
 
     const interactiveEls = document.querySelectorAll(
       'a, button, [role="button"], input, textarea'
@@ -65,43 +85,61 @@ export default function CustomCursor() {
         el.removeEventListener("mouseleave", handleOutCard);
       });
     };
-  }, [cursorX, cursorY]);
+  }, [dotX, dotY, ringX, ringY]);
 
   // Don't render on mobile or tablet
-  if (typeof window !== "undefined" && (window.innerWidth < 1024 || window.matchMedia("(pointer: coarse)").matches)) return null;
+  if (
+    typeof window !== "undefined" &&
+    (window.innerWidth < 1024 ||
+      window.matchMedia("(pointer: coarse)").matches ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+  ) {
+    return null;
+  }
 
   return (
-    <div className="fixed inset-0 z-[9998] pointer-events-none hidden lg:block">
+    <div className="fixed inset-0 z-[9998] pointer-events-none hidden lg:block" aria-hidden="true">
       {/* Inner dot */}
       <motion.div
         ref={dotRef}
-        className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"
+        className="fixed top-0 left-0 w-1.5 h-1.5 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"
         style={{
-          x: cursorX,
-          y: cursorY,
+          x: dotX,
+          y: dotY,
           opacity: visible ? 1 : 0,
         }}
       />
 
-      {/* Outer circle */}
+      {/* Outer antigravity orbital ring */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full border border-white/30 -translate-x-1/2 -translate-y-1/2"
+        className="fixed top-0 left-0 rounded-full border border-white/30 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center backdrop-blur-[1px]"
         style={{
-          x: cursorX,
-          y: cursorY,
+          x: ringX,
+          y: ringY,
           opacity: visible ? 1 : 0,
         }}
         animate={{
-          width: hoveringCard ? 80 : hovering ? 48 : 32,
-          height: hoveringCard ? 80 : hovering ? 48 : 32,
+          width: hoveringCard ? 72 : hovering ? 44 : 28,
+          height: hoveringCard ? 72 : hovering ? 44 : 28,
           borderColor: hoveringCard
-            ? "rgba(0, 217, 255, 0.5)"
+            ? "rgba(56, 189, 248, 0.6)"
             : hovering
-            ? "rgba(255, 255, 255, 0.5)"
+            ? "rgba(255, 255, 255, 0.6)"
             : "rgba(255, 255, 255, 0.2)",
+          backgroundColor: hoveringCard
+            ? "rgba(56, 189, 248, 0.08)"
+            : hovering
+            ? "rgba(255, 255, 255, 0.05)"
+            : "transparent",
         }}
-        transition={{ type: "spring", stiffness: 300, damping: 25 }}
-      />
+        transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {hoveringCard && cardLabel && (
+          <span className="font-mono text-[9px] tracking-[0.25em] text-electric-blue uppercase">
+            {cardLabel}
+          </span>
+        )}
+      </motion.div>
     </div>
   );
 }

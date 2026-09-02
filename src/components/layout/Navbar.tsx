@@ -113,7 +113,7 @@ export default function Navbar() {
                   className="text-[11px] font-medium tracking-[0.18em] text-secondary-text hover:text-white transition-colors duration-300 relative group min-h-[44px] flex items-center"
                 >
                   {link.label}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-electric-blue transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute -bottom-0.5 left-0 right-0 h-px bg-electric-blue scale-x-0 group-hover:scale-x-100 origin-right group-hover:origin-left transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]" />
                 </button>
               ))}
             </nav>
@@ -121,7 +121,7 @@ export default function Navbar() {
             {/* Desktop CTA */}
             <button
               onClick={() => handleNavClick("#connect")}
-              className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 text-[11px] font-semibold tracking-[0.15em] bg-white text-black rounded-full hover:bg-electric-blue hover:text-black transition-colors duration-300 min-h-[40px]"
+              className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 text-[11px] font-semibold tracking-[0.15em] bg-white text-black rounded-full hover:bg-electric-blue hover:text-black transition-colors duration-300 min-h-[40px] btn-antigravity"
             >
               LET&apos;S TALK
               <ArrowRight size={14} />

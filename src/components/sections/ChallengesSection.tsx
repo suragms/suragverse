@@ -41,24 +41,26 @@ export default function ChallengesSection() {
           >
             MY STORY
           </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.1, duration: 0.8 }}
-            className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[0.9] mb-10"
-          >
-            {personalStory.heading.map((line, i) => (
-              <span key={i}>
-                {line}
-                <br />
-              </span>
-            ))}
-          </motion.h2>
+          <div className="overflow-hidden pb-1 mb-8">
+            <motion.h2
+              initial={{ y: "110%", opacity: 0 }}
+              animate={inView ? { y: "0%", opacity: 1 } : {}}
+              transition={{ delay: 0.1, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+              className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[0.9]"
+            >
+              {personalStory.heading.map((line, i) => (
+                <span key={i}>
+                  {line}
+                  <br />
+                </span>
+              ))}
+            </motion.h2>
+          </div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.2, duration: 0.8 }}
+            transition={{ delay: 0.25, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight leading-tight text-white/90 max-w-2xl mx-auto lg:mx-0 mb-10"
           >
             {personalStory.statement}
@@ -74,7 +76,7 @@ export default function ChallengesSection() {
                 key={i}
                 initial={{ opacity: 0, y: 16 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.35 + i * 0.1, duration: 0.7 }}
+                transition={{ delay: 0.35 + i * 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 className="flex items-start gap-4 text-secondary-text text-base leading-relaxed"
               >
                 <span className="mt-3 w-px h-4 bg-electric-blue/60 flex-shrink-0" />
@@ -86,7 +88,7 @@ export default function ChallengesSection() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.8, duration: 0.8 }}
+            transition={{ delay: 0.8, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="text-secondary-text text-base leading-relaxed max-w-xl mx-auto lg:mx-0"
           >
             {personalStory.closing}
@@ -95,7 +97,12 @@ export default function ChallengesSection() {
 
         {/* Visual — a dignified portrait, unadorned */}
         <motion.div style={{ y }} className="order-2 lg:order-2 lg:col-span-5">
-          <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, scale: 1.08 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+            className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
+          >
             <Image
               src={brandImages.creative.src}
               alt={brandImages.creative.alt}
@@ -113,7 +120,7 @@ export default function ChallengesSection() {
                   "linear-gradient(180deg, rgba(5,5,5,0.15), transparent 50%, rgba(5,5,5,0.5))",
               }}
             />
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

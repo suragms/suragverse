@@ -95,26 +95,39 @@ export default function HeroSection() {
       <div className="relative z-[2] w-full max-w-7xl mx-auto px-4 sm:px-6 pt-32 pb-16 sm:pt-36 sm:pb-24 lg:pt-36 lg:pb-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-y-10 lg:gap-x-12">
           {/* ——— EDITORIAL TEXT & ACTIONS (col-span-7) ——— */}
-          <motion.div
-            initial={{ opacity: 0, y: 26 }}
-            animate={started ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.9, ease: EASE }}
-            className="order-1 lg:order-1 lg:col-span-7 text-center lg:text-left"
-          >
-            <p className="text-[10px] sm:text-[11px] tracking-[0.5em] text-electric-blue mb-4 sm:mb-6 font-mono">
-              HELLO, I&apos;M
-            </p>
-            <h1
-              className="font-[family-name:var(--font-heading)] font-bold tracking-tight leading-[0.86]"
-              style={{ fontSize: "clamp(3.4rem, 10vw, 8.5rem)" }}
+          <div className="order-1 lg:order-1 lg:col-span-7 text-center lg:text-left">
+            {/* 04: HELLO, I'M appears */}
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={started ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.25, ease: EASE }}
+              className="text-[10px] sm:text-[11px] tracking-[0.5em] text-electric-blue mb-4 sm:mb-6 font-mono"
             >
-              SURAG
-              <br />
-              M S<span className="text-electric-blue">.</span>
-            </h1>
+              HELLO, I&apos;M
+            </motion.p>
 
-            {/* Professional Identity Pills — immediately visible */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-2.5 my-6 sm:my-7 font-mono text-[9px] sm:text-[10px] tracking-[0.2em]">
+            {/* 05: SURAG M S rises through mask */}
+            <div className="overflow-hidden pb-1">
+              <motion.h1
+                initial={{ y: "115%", opacity: 0 }}
+                animate={started ? { y: "0%", opacity: 1 } : {}}
+                transition={{ duration: 1.0, delay: 0.38, ease: EASE }}
+                className="font-[family-name:var(--font-heading)] font-bold tracking-tight leading-[0.86]"
+                style={{ fontSize: "clamp(3.4rem, 10vw, 8.5rem)" }}
+              >
+                SURAG
+                <br />
+                M S<span className="text-electric-blue">.</span>
+              </motion.h1>
+            </div>
+
+            {/* 06: Professional identity fades in */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={started ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.55, ease: EASE }}
+              className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-2.5 my-6 sm:my-7 font-mono text-[9px] sm:text-[10px] tracking-[0.2em]"
+            >
               {roles.map((role) => (
                 <span
                   key={role}
@@ -123,20 +136,36 @@ export default function HeroSection() {
                   {role}
                 </span>
               ))}
-            </div>
+            </motion.div>
 
-            <p className="font-[family-name:var(--font-heading)] text-lg sm:text-2xl md:text-3xl font-semibold tracking-tight text-soft-blue mb-4 leading-tight">
+            {/* Tagline & bio */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={started ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.7, ease: EASE }}
+              className="font-[family-name:var(--font-heading)] text-lg sm:text-2xl md:text-3xl font-semibold tracking-tight text-soft-blue mb-4 leading-tight"
+            >
               A CREATOR BUILDING WITH TECHNOLOGY.
-            </p>
+            </motion.p>
 
-            <p className="text-secondary-text text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-10 leading-relaxed">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={started ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.78, ease: EASE }}
+              className="text-secondary-text text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-10 leading-relaxed"
+            >
               I explore ideas through technology, creativity, and digital
               experiences — continuously learning, building, and discovering
               what is possible.
-            </p>
+            </motion.p>
 
-            {/* Premium CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4">
+            {/* 07: CTA gently arrives */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={started ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.88, ease: EASE }}
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4"
+            >
               <MagneticButton
                 onClick={handleStory}
                 className="group inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 bg-white !text-black text-xs sm:text-sm font-bold tracking-wider rounded-full hover:bg-electric-blue hover:!text-black transition-colors duration-300 min-h-[48px] w-full sm:w-auto shadow-lg"
@@ -151,7 +180,7 @@ export default function HeroSection() {
                 href={contactInfo.portfolio}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 border border-glass-border text-xs sm:text-sm font-semibold tracking-wider rounded-full hover:border-white/40 hover:bg-white/5 transition-all duration-300 min-h-[48px] w-full sm:w-auto"
+                className="group inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 border border-glass-border text-xs sm:text-sm font-semibold tracking-wider rounded-full hover:border-white/40 hover:bg-white/5 transition-all duration-300 min-h-[48px] w-full sm:w-auto btn-antigravity"
               >
                 EXPLORE MY WORK
                 <ArrowUpRight
@@ -159,21 +188,24 @@ export default function HeroSection() {
                   className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
                 />
               </a>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
-          {/* ——— PORTRAIT (col-span-5) ——— */}
+          {/* ——— 03: PORTRAIT slowly reveals with gentle Antigravity float (col-span-5) ——— */}
           <motion.div
-            initial={{ opacity: 0, y: 26 }}
-            animate={started ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1.1, delay: 0.3, ease: EASE }}
+            initial={{ opacity: 0, scale: 1.08 }}
+            animate={started ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 1.4, delay: 0.2, ease: EASE }}
             className="order-2 lg:order-2 lg:col-span-5 flex justify-center lg:justify-end"
           >
             <motion.div
               style={{ x: portraitX, y: portraitY }}
               className="relative w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[420px]"
             >
+              {/* Subtle Antigravity weightless breathing */}
               <motion.div
+                animate={{ y: [0, -7, 0] }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
                 className="hero-frame aspect-[4/5] w-full will-change-transform"
                 style={{ scale: zoom }}
               >
