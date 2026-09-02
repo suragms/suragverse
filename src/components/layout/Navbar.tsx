@@ -7,11 +7,12 @@ import { scrollToSection } from "@/lib/lenis";
 
 const navLinks = [
   { label: "HOME", href: "#home" },
-  { label: "UNIVERSE", href: "#universe" },
-  { label: "PROJECTS", href: "#projects" },
-  { label: "WEBSITES", href: "#websites" },
-  { label: "ABOUT", href: "#about" },
-  { label: "CONTACT", href: "#contact" },
+  { label: "MY STORY", href: "#my-story" },
+  { label: "MY JOURNEY", href: "#journey" },
+  { label: "WHO I AM", href: "#who-i-am" },
+  { label: "WHAT I DO", href: "#what-i-do" },
+  { label: "MY WORK", href: "#my-work" },
+  { label: "CONNECT", href: "#connect" },
 ];
 
 const MENU_ID = "mobile-nav-menu";
@@ -111,10 +112,10 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <button
-            onClick={() => handleNavClick("#projects")}
+            onClick={() => handleNavClick("#my-work")}
             className="hidden lg:flex items-center gap-2 px-5 py-2.5 text-[11px] font-semibold tracking-[0.15em] border border-glass-border rounded-full hover:border-electric-blue/50 hover:bg-electric-blue/5 transition-all duration-300 min-h-[44px]"
           >
-            EXPLORE
+            EXPLORE MY WORLD
           </button>
 
           {/* Mobile Menu Button */}
@@ -213,10 +214,10 @@ export default function Navbar() {
                 className="mt-8"
               >
                 <button
-                  onClick={() => handleNavClick("#contact")}
+                  onClick={() => handleNavClick("#my-work")}
                   className="inline-flex items-center gap-3 px-8 py-4 text-sm font-semibold tracking-[0.15em] border border-electric-blue/50 rounded-full text-electric-blue hover:bg-electric-blue/10 active:bg-electric-blue/15 transition-all duration-200 min-h-[48px]"
                 >
-                  START A PROJECT
+                  EXPLORE MY WORLD
                 </button>
               </motion.div>
 

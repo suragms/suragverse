@@ -150,7 +150,7 @@ function Chapter({
 
 export default function ScrollStory() {
   return (
-    <section id="story" className="relative px-4 sm:px-6 py-16 sm:py-24 lg:py-32">
+    <section id="journey" className="relative px-4 sm:px-6 py-16 sm:py-24 lg:py-32">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12 sm:mb-16 text-center">
           <motion.p
@@ -159,7 +159,7 @@ export default function ScrollStory() {
             viewport={{ once: true }}
             className="text-[10px] sm:text-xs tracking-[0.4em] sm:tracking-[0.5em] text-electric-blue mb-4 font-mono"
           >
-            THE CREATOR&apos;S JOURNEY
+            MY JOURNEY
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -168,9 +168,9 @@ export default function ScrollStory() {
             transition={{ delay: 0.1 }}
             className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[0.95]"
           >
-            HOW IT
+            EVERY JOURNEY
             <br />
-            <span className="gradient-text">ALL BEGAN.</span>
+            <span className="gradient-text">HAS A STORY.</span>
           </motion.h2>
         </div>
 

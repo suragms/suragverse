@@ -162,7 +162,7 @@ export default function GallerySection() {
             viewport={{ once: true }}
             className="text-[10px] sm:text-xs tracking-[0.4em] sm:tracking-[0.5em] text-electric-blue mb-4 font-mono"
           >
-            THE GALLERY
+            MY JOURNEY
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -173,7 +173,7 @@ export default function GallerySection() {
           >
             MOMENTS FROM
             <br />
-            <span className="gradient-text">THE JOURNEY.</span>
+            <span className="gradient-text">MY JOURNEY.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}

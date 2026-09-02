@@ -17,7 +17,12 @@ const HeroScene = lazy(() => import("@/components/three/HeroScene"));
 
 const INTRO_EVENT = "suragverse:intro:complete";
 
-const roles = ["AI ENGINEER", "FULL-STACK DEVELOPER", "DIGITAL CREATOR"];
+const roles = [
+  "APPLIED AI ENGINEER",
+  "FULL-STACK DEVELOPER",
+  "AI AUTOMATION ENTHUSIAST",
+  "DIGITAL CREATOR",
+];
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -65,8 +70,8 @@ export default function HeroSection() {
     return () => window.removeEventListener("mousemove", handleMove);
   }, [mx, my]);
 
-  const handleExplore = () => scrollToSection("#projects");
-  const handleUniverse = () => scrollToSection("#story");
+  const handleWork = () => scrollToSection("#my-work");
+  const handleStory = () => scrollToSection("#my-story");
 
   return (
     <section
@@ -77,7 +82,7 @@ export default function HeroSection() {
       {/* Ambient 3D environment — activates with the timeline */}
       <div className="absolute inset-0 z-0 transition-opacity duration-1000" style={{ opacity: started ? 1 : 0 }}>
         <Suspense fallback={null}>
-          <HeroScene mouseX={mouse.x} mouseY={mouse.y} onObjectClick={handleExplore} />
+          <HeroScene mouseX={mouse.x} mouseY={mouse.y} onObjectClick={handleStory} />
         </Suspense>
       </div>
 
@@ -100,13 +105,15 @@ export default function HeroSection() {
           className="order-1 lg:col-start-1 lg:row-start-1"
         >
           <p className="text-[10px] sm:text-[11px] tracking-[0.4em] sm:tracking-[0.5em] text-electric-blue mb-4 sm:mb-6 font-mono">
-            WELCOME TO
+            HELLO, I&apos;M SURAG M S.
           </p>
           <h1
-            className="font-[family-name:var(--font-heading)] font-bold tracking-tight leading-[0.88]"
-            style={{ fontSize: "clamp(2.5rem, 10vw, 7rem)" }}
+            className="font-[family-name:var(--font-heading)] font-bold tracking-tight leading-[0.9]"
+            style={{ fontSize: "clamp(2.4rem, 9vw, 6.5rem)" }}
           >
-            SURAG<span className="text-electric-blue">VERSE</span>
+            WELCOME TO
+            <br />
+            MY <span className="text-electric-blue">UNIVERSE.</span>
           </h1>
         </motion.div>
 
@@ -163,8 +170,8 @@ export default function HeroSection() {
           className="order-3 lg:col-start-1 lg:row-start-2"
         >
           <p className="text-secondary-text text-sm sm:text-base lg:text-lg max-w-xl mx-auto lg:mx-0 mb-5 sm:mb-7 leading-relaxed">
-            A universe of technology, creativity, ideas, and digital
-            experiences.
+            A journey of curiosity, technology, creativity, challenges,
+            determination, and endless possibilities.
           </p>
 
           <div className="flex flex-wrap justify-center lg:justify-start gap-x-4 gap-y-2 mb-7 sm:mb-9 font-mono text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.28em] text-white/70">
@@ -178,17 +185,17 @@ export default function HeroSection() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4">
             <MagneticButton
-              onClick={handleUniverse}
+              onClick={handleStory}
               className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-white text-black text-xs sm:text-sm font-semibold tracking-wider rounded-full hover:bg-electric-blue hover:text-black transition-colors duration-300 hover:shadow-[0_0_40px_rgba(0,217,255,0.35)] min-h-[48px] w-full sm:w-auto"
             >
-              EXPLORE THE UNIVERSE
+              DISCOVER MY STORY
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </MagneticButton>
             <MagneticButton
-              onClick={handleExplore}
+              onClick={handleWork}
               className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 border border-glass-border text-xs sm:text-sm font-semibold tracking-wider rounded-full hover:border-white/40 hover:bg-white/5 transition-all duration-300 min-h-[48px] w-full sm:w-auto"
             >
-              START A PROJECT
+              EXPLORE MY WORK
             </MagneticButton>
           </div>
         </motion.div>

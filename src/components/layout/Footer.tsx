@@ -7,18 +7,20 @@ import { socials } from "@/data/socials";
 
 const footerLinks = [
   { label: "Home", href: "#home" },
-  { label: "Projects", href: "#projects" },
-  { label: "Websites", href: "#websites" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "My Story", href: "#my-story" },
+  { label: "My Journey", href: "#journey" },
+  { label: "Who I Am", href: "#who-i-am" },
+  { label: "What I Do", href: "#what-i-do" },
+  { label: "My Work", href: "#my-work" },
+  { label: "Connect", href: "#connect" },
 ];
 
 const footerServices = [
-  "Freelance Projects",
-  "Architectural Consultations",
-  "Business Support",
-  "Business Development",
+  "Applied AI Engineering",
   "Full-Stack Development",
+  "AI Automation",
+  "Business Support & Development",
+  "Architectural Consultations",
 ];
 
 const connectSocials = socials.filter((s) =>
@@ -44,7 +46,7 @@ export default function Footer() {
               SURAG<span className="text-electric-blue">VERSE</span>
             </h3>
             <p className="text-secondary-text text-sm leading-relaxed max-w-xs">
-              Building the future, one experience at a time.
+              A journey of curiosity, technology, creativity, and endless possibilities.
             </p>
           </div>
 
@@ -75,7 +77,7 @@ export default function Footer() {
               {footerServices.map((service) => (
                 <button
                   key={service}
-                  onClick={() => handleNavClick("#contact")}
+                  onClick={() => handleNavClick("#what-i-do")}
                   className="text-sm text-secondary-text hover:text-white active:text-electric-blue transition-colors w-fit text-left min-h-[44px] flex items-center"
                 >
                   {service}

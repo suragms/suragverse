@@ -9,7 +9,7 @@ import { brandImages } from "@/data/images";
  * Cinematic opening sequence.
  *
  * SCENE 01  Black screen + "SURAGVERSE" subtle typography
- * SCENE 02  "INITIALIZING DIGITAL UNIVERSE" — animated line + particles
+ * SCENE 02  "INITIALIZING MY STORY..." — animated line + particles
  * SCENE 03  The SURAG poster reveals from darkness (clip-path + blur)
  * SCENE 04  "THIS IS / SURAGVERSE"
  * SCENE 05  The poster dissolves into the hero behind it
@@ -184,7 +184,7 @@ export default function LoadingScreen() {
         ref={statusRef}
         className="absolute bottom-20 sm:bottom-24 left-1/2 -translate-x-1/2 text-[9px] sm:text-[10px] tracking-[0.3em] sm:tracking-[0.4em] text-secondary-text font-mono opacity-0"
       >
-        INITIALIZING DIGITAL UNIVERSE
+        INITIALIZING MY STORY...
       </p>
       <div className="absolute bottom-12 sm:bottom-16 left-1/2 -translate-x-1/2 w-40 sm:w-52 lg:w-72 h-px bg-white/10 overflow-hidden">
         <div
@@ -220,7 +220,7 @@ export default function LoadingScreen() {
             className="absolute inset-x-0 bottom-8 flex flex-col items-center gap-2 opacity-0"
           >
             <span className="text-[9px] sm:text-[10px] tracking-[0.4em] sm:tracking-[0.5em] text-secondary-text font-mono">
-              THIS IS
+              THE STORY BEHIND THE CREATOR
             </span>
             <span className="font-[family-name:var(--font-heading)] text-xl sm:text-2xl md:text-3xl font-bold tracking-[0.2em] sm:tracking-[0.25em] text-white">
               SURAG<span className="text-electric-blue">VERSE</span>
