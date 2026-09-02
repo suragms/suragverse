@@ -6,10 +6,23 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Mail } from "lucide-react";
 import { brandImages } from "@/data/images";
 import { contactInfo } from "@/data/contact";
+import { socials } from "@/data/socials";
+
+const availability = [
+  "Freelance Projects",
+  "Full-Stack Development",
+  "Applied AI",
+  "AI Automation",
+  "Business Support",
+  "Business Development",
+  "Technology Collaboration",
+  "Architectural Consultations",
+];
 
 /**
  * Section 12 — LET'S CONNECT.
- * Cinematic closing with the CTA portrait, contact details, and socials.
+ * The single unified contact experience: portrait, message, availability,
+ * primary CTAs, direct details, and social links.
  * "LET'S CREATE WHAT'S NEXT."
  */
 export default function ConnectSection() {
@@ -85,11 +98,33 @@ export default function ConnectSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.25 }}
-            className="text-secondary-text text-base sm:text-lg mb-10 max-w-lg mx-auto lg:mx-0"
+            className="text-secondary-text text-base sm:text-lg mb-8 max-w-lg mx-auto lg:mx-0"
           >
             Whether you have an idea, an opportunity, a collaboration, or simply
             want to connect — I&apos;d love to hear from you.
           </motion.p>
+
+          {/* Professional availability */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.32 }}
+            className="mb-10"
+          >
+            <p className="text-[10px] tracking-[0.4em] text-secondary-text font-mono mb-4 text-center lg:text-left">
+              OPEN FOR
+            </p>
+            <div className="flex flex-wrap justify-center lg:justify-start gap-2">
+              {availability.map((item) => (
+                <span
+                  key={item}
+                  className="px-3.5 py-1.5 rounded-full border border-glass-border text-[10px] tracking-wider text-secondary-text"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </motion.div>
 
           {/* Primary CTAs */}
           <motion.div
@@ -177,6 +212,36 @@ export default function ConnectSection() {
               >
                 linktr.ee/suragdevstudio
               </a>
+            </div>
+          </motion.div>
+
+          {/* Social links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.5 }}
+            className="mt-12 pt-8 border-t border-white/10"
+          >
+            <p className="text-[10px] tracking-[0.4em] text-secondary-text font-mono mb-5 text-center lg:text-left">
+              FIND ME ONLINE
+            </p>
+            <div className="flex flex-wrap justify-center lg:justify-start gap-2.5">
+              {socials.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.id}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${social.name} — ${social.username}`}
+                    className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full border border-glass-border text-[11px] tracking-wider text-secondary-text hover:text-white hover:border-white/30 transition-colors duration-300 min-h-[44px]"
+                  >
+                    <Icon size={14} />
+                    {social.name}
+                  </a>
+                );
+              })}
             </div>
           </motion.div>
         </div>

@@ -94,7 +94,7 @@ function GlowingSphere({ onClick }: { onClick?: () => void }) {
       <mesh ref={wireRef}>
         <sphereGeometry args={[1.3, 20, 20]} />
         <meshBasicMaterial
-          color="#7C3AED"
+          color="#A8C5D4"
           wireframe
           transparent
           opacity={0.2}
@@ -113,7 +113,7 @@ function GlowingSphere({ onClick }: { onClick?: () => void }) {
       <mesh rotation={[Math.PI / 2, Math.PI / 4, 0]}>
         <torusGeometry args={[2.2, 0.008, 2, 128]} />
         <meshBasicMaterial
-          color="#7C3AED"
+          color="#A8C5D4"
           transparent
           opacity={0.2}
         />
@@ -167,7 +167,7 @@ function Particles({ count = 200 }: { count?: number }) {
       </bufferGeometry>
       <pointsMaterial
         size={0.04}
-        color="#7C3AED"
+        color="#A8C5D4"
         transparent
         opacity={0.5}
         sizeAttenuation
@@ -190,7 +190,7 @@ function Scene({ mouseX, mouseY, onObjectClick }: { mouseX: number; mouseY: numb
     <>
       <ambientLight intensity={0.5} />
       <directionalLight position={[5, 5, 5]} intensity={0.8} />
-      <pointLight position={[-5, -5, 0]} color="#7C3AED" intensity={1} />
+      <pointLight position={[-5, -5, 0]} color="#A8C5D4" intensity={1} />
       <pointLight position={[0, 5, 0]} color="#00D9FF" intensity={0.5} />
 
       <Stars
@@ -207,8 +207,8 @@ function Scene({ mouseX, mouseY, onObjectClick }: { mouseX: number; mouseY: numb
         <GlowingSphere onClick={onObjectClick} />
         <Particles count={300} />
         <FloatingShape position={[-4, 1.5, -2]} color="#00D9FF" scale={0.4} rotationSpeed={0.5} />
-        <FloatingShape position={[4, -1, -3]} color="#7C3AED" scale={0.6} rotationSpeed={0.3} />
-        <FloatingShape position={[3, 2, -1]} color="#39FF88" scale={0.3} rotationSpeed={0.7} />
+        <FloatingShape position={[4, -1, -3]} color="#A8C5D4" scale={0.6} rotationSpeed={0.3} />
+        <FloatingShape position={[3, 2, -1]} color="#C9D6E0" scale={0.3} rotationSpeed={0.7} />
         <FloatingShape position={[-3, -1.5, -1]} color="#00D9FF" scale={0.35} rotationSpeed={0.4} />
       </group>
     </>

@@ -16,7 +16,6 @@ import DigitalWorldSection from "@/components/sections/DigitalWorldSection";
 import GallerySection from "@/components/sections/GallerySection";
 import FutureSection from "@/components/sections/FutureSection";
 import ConnectSection from "@/components/sections/ConnectSection";
-import FinalCTA from "@/components/sections/FinalCTA";
 import Footer from "@/components/layout/Footer";
 
 export default function Home() {
@@ -51,8 +50,6 @@ export default function Home() {
           <FutureSection />
           {/* 12 — LET'S CONNECT */}
           <ConnectSection />
-          {/* Epilogue */}
-          <FinalCTA />
         </main>
         <Footer />
       </div>
