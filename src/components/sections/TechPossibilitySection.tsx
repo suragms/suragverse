@@ -94,16 +94,21 @@ export default function TechPossibilitySection() {
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 + i * 0.08, duration: 0.6 }}
-              className="group flex items-center gap-6 sm:gap-10 py-6 sm:py-7 border-b border-white/8 last:border-b-0"
+              className="group py-5 sm:py-7 border-b border-white/8 last:border-b-0"
             >
-              <span className="font-mono text-[10px] sm:text-xs text-secondary-text/70 tracking-[0.3em] w-8 flex-shrink-0">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="font-[family-name:var(--font-heading)] text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-none text-white/85 group-hover:text-electric-blue transition-colors duration-500">
-                {cap.title}
-              </h3>
-              <span className="flex-1 h-px bg-white/10 group-hover:bg-electric-blue/50 transition-colors duration-500" />
-              <p className="hidden md:block text-secondary-text text-sm leading-relaxed max-w-xs">
+              <div className="flex items-center gap-4 sm:gap-10">
+                <span className="font-mono text-[10px] sm:text-xs text-secondary-text/70 tracking-[0.3em] w-8 flex-shrink-0">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="font-[family-name:var(--font-heading)] text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-none text-white/85 group-hover:text-electric-blue transition-colors duration-500">
+                  {cap.title}
+                </h3>
+                <span className="flex-1 h-px bg-white/10 group-hover:bg-electric-blue/50 transition-colors duration-500 hidden sm:block" />
+                <p className="hidden md:block text-secondary-text text-sm leading-relaxed max-w-xs">
+                  {cap.desc}
+                </p>
+              </div>
+              <p className="md:hidden text-secondary-text text-xs sm:text-sm leading-relaxed mt-2 pl-12">
                 {cap.desc}
               </p>
             </motion.div>

@@ -90,7 +90,7 @@ export default function ConnectSection() {
             transition={{ duration: 0.9, delay: 0.1 }}
             className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[0.9] mb-6"
           >
-            LET&apos;S BUILD
+            LET&apos;S CREATE
             <br />
             <span className="gradient-text">WHAT&apos;S NEXT.</span>
           </motion.h2>
@@ -135,7 +135,7 @@ export default function ConnectSection() {
           >
             <a
               href={contactInfo.emailHref}
-              className="group inline-flex items-center gap-3 px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-white text-black text-xs sm:text-sm font-bold tracking-wider hover:bg-electric-blue transition-colors duration-500 min-h-[48px] w-full sm:w-auto"
+              className="group inline-flex items-center justify-center gap-3 px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-white !text-black text-xs sm:text-sm font-bold tracking-wider hover:bg-electric-blue hover:!text-black transition-colors duration-500 min-h-[48px] w-full sm:w-auto shadow-lg"
             >
               <Mail size={16} />
               START A CONVERSATION

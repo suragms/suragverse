@@ -92,106 +92,54 @@ export default function HeroSection() {
       {/* Cinematic grade */}
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/70 via-transparent to-background/80" />
 
-      <div className="relative z-[2] w-full max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-16 sm:pt-32 sm:pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-y-10 lg:gap-x-6">
-          {/* ——— TEXT (approx 55%) ——— */}
+      <div className="relative z-[2] w-full max-w-7xl mx-auto px-4 sm:px-6 pt-32 pb-16 sm:pt-36 sm:pb-24 lg:pt-36 lg:pb-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-y-10 lg:gap-x-12">
+          {/* ——— EDITORIAL TEXT & ACTIONS (col-span-7) ——— */}
           <motion.div
             initial={{ opacity: 0, y: 26 }}
             animate={started ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, ease: EASE }}
-            className="order-1 lg:col-span-7 text-center lg:text-left"
+            className="order-1 lg:order-1 lg:col-span-7 text-center lg:text-left"
           >
-            <p className="text-[10px] sm:text-[11px] tracking-[0.5em] text-electric-blue mb-5 sm:mb-7 font-mono">
+            <p className="text-[10px] sm:text-[11px] tracking-[0.5em] text-electric-blue mb-4 sm:mb-6 font-mono">
               HELLO, I&apos;M
             </p>
             <h1
               className="font-[family-name:var(--font-heading)] font-bold tracking-tight leading-[0.86]"
-              style={{ fontSize: "clamp(3.4rem, 11vw, 9rem)" }}
+              style={{ fontSize: "clamp(3.4rem, 10vw, 8.5rem)" }}
             >
               SURAG
               <br />
               M S<span className="text-electric-blue">.</span>
             </h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={started ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.9, delay: 0.25, ease: EASE }}
-              className="font-[family-name:var(--font-heading)] text-lg sm:text-2xl md:text-3xl font-semibold tracking-tight text-soft-blue mt-5 sm:mt-7"
-            >
-              A CREATOR
-              <br />
-              BUILDING WITH
-              <br />
-              TECHNOLOGY.
-            </motion.p>
-          </motion.div>
 
-          {/* ——— PORTRAIT (approx 45%, extends toward edge) ——— */}
-          <motion.div
-            initial={{ opacity: 0, y: 26 }}
-            animate={started ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1.1, delay: 0.3, ease: EASE }}
-            className="order-2 lg:col-span-5 flex justify-center lg:justify-end lg:-mr-4 xl:-mr-6"
-          >
-            <motion.div
-              style={{ x: portraitX, y: portraitY }}
-              className="relative w-full max-w-[300px] sm:max-w-[360px] lg:max-w-[440px]"
-            >
-              <motion.div
-                className="hero-frame aspect-[4/5] w-full will-change-transform"
-                style={{ scale: zoom }}
-              >
-                <Image
-                  src={brandImages.hero.src}
-                  alt={brandImages.hero.alt}
-                  fill
-                  priority
-                  sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 38vw"
-                  className="hero-img object-cover"
-                  quality={88}
-                />
-                {/* soft atmosphere, kept subtle */}
-                <div
-                  className="absolute inset-0 opacity-40 mix-blend-screen pointer-events-none"
-                  aria-hidden="true"
-                  style={{
-                    background:
-                      "radial-gradient(60% 40% at 50% 20%, rgba(255,255,255,0.08), transparent 70%)",
-                  }}
-                />
-              </motion.div>
-            </motion.div>
-          </motion.div>
+            {/* Professional Identity Pills — immediately visible */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-2.5 my-6 sm:my-7 font-mono text-[9px] sm:text-[10px] tracking-[0.2em]">
+              {roles.map((role) => (
+                <span
+                  key={role}
+                  className="px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] text-white/80"
+                >
+                  {role}
+                </span>
+              ))}
+            </div>
 
-          {/* ——— DESCRIPTION + CTAs ——— */}
-          <motion.div
-            initial={{ opacity: 0, y: 26 }}
-            animate={started ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.9, delay: 0.55, ease: EASE }}
-            className="order-3 lg:col-span-12 mt-2 lg:mt-6 text-center lg:text-left"
-          >
-            <p className="text-secondary-text text-base sm:text-lg lg:text-xl max-w-2xl mx-auto lg:mx-0 mb-7 sm:mb-9 leading-relaxed">
+            <p className="font-[family-name:var(--font-heading)] text-lg sm:text-2xl md:text-3xl font-semibold tracking-tight text-soft-blue mb-4 leading-tight">
+              A CREATOR BUILDING WITH TECHNOLOGY.
+            </p>
+
+            <p className="text-secondary-text text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-10 leading-relaxed">
               I explore ideas through technology, creativity, and digital
               experiences — continuously learning, building, and discovering
               what is possible.
             </p>
 
-            <div className="flex flex-wrap justify-center lg:justify-start gap-x-5 gap-y-2 mb-8 sm:mb-10 font-mono text-[9px] sm:text-[10px] tracking-[0.22em] text-white/70">
-              {roles.map((role, i) => (
-                <span key={role} className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-electric-blue" />
-                  {role}
-                  {i < roles.length - 1 && (
-                    <span className="text-white/20 hidden sm:inline">/</span>
-                  )}
-                </span>
-              ))}
-            </div>
-
+            {/* Premium CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4">
               <MagneticButton
                 onClick={handleStory}
-                className="group inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 bg-white text-black text-xs sm:text-sm font-semibold tracking-wider rounded-full hover:bg-electric-blue hover:text-black transition-colors duration-300 min-h-[48px] w-full sm:w-auto"
+                className="group inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 bg-white !text-black text-xs sm:text-sm font-bold tracking-wider rounded-full hover:bg-electric-blue hover:!text-black transition-colors duration-300 min-h-[48px] w-full sm:w-auto shadow-lg"
               >
                 DISCOVER MY STORY
                 <ArrowRight
@@ -212,6 +160,44 @@ export default function HeroSection() {
                 />
               </a>
             </div>
+          </motion.div>
+
+          {/* ——— PORTRAIT (col-span-5) ——— */}
+          <motion.div
+            initial={{ opacity: 0, y: 26 }}
+            animate={started ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 1.1, delay: 0.3, ease: EASE }}
+            className="order-2 lg:order-2 lg:col-span-5 flex justify-center lg:justify-end"
+          >
+            <motion.div
+              style={{ x: portraitX, y: portraitY }}
+              className="relative w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[420px]"
+            >
+              <motion.div
+                className="hero-frame aspect-[4/5] w-full will-change-transform"
+                style={{ scale: zoom }}
+              >
+                <Image
+                  src={brandImages.hero.src}
+                  alt={brandImages.hero.alt}
+                  fill
+                  priority
+                  sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 38vw"
+                  className="hero-img object-cover"
+                  style={{ objectPosition: brandImages.hero.objectPosition }}
+                  quality={88}
+                />
+                {/* soft atmosphere */}
+                <div
+                  className="absolute inset-0 opacity-30 mix-blend-screen pointer-events-none"
+                  aria-hidden="true"
+                  style={{
+                    background:
+                      "radial-gradient(60% 40% at 50% 20%, rgba(255,255,255,0.08), transparent 70%)",
+                  }}
+                />
+              </motion.div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

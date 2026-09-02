@@ -47,10 +47,10 @@ export const personalStory = {
   statement: "I AM A PERSON FIRST. A CREATOR. A PROFESSIONAL. A LEARNER.",
   statementHighlight: "MY LIMITATIONS DO NOT DEFINE MY POSSIBILITIES.",
   realities: [
-    "I am a person first — a creator, a learner, a professional.",
-    "I live with a physical disability. It is part of my story, not the whole of it.",
-    "Technology and assistive tools help me interact, create, learn, and keep building.",
-    "My challenges shape my approach, but they don't define my limits.",
+    "Living with a physical disability is part of my reality — never the whole of my identity.",
+    "Technology and assistive tools empower me to adapt, create, and build with independence.",
+    "Every constraint became an opportunity to think deeper, solve smarter, and engineer with care.",
+    "My challenges have shaped my discipline, but they do not set my ceiling.",
   ],
   closing:
     "Technology has always been more than a career for me. It is how I adapt, how I communicate, how I create — and how I keep moving forward, one build at a time.",

@@ -27,28 +27,27 @@ export default function Home() {
       <div className="noise-overlay">
         <Navbar />
         <main>
-          {/* 01 — LOADING (handled by LoadingScreen) */}
-          {/* 02 — HELLO, I'M SURAG */}
+          {/* 01 — HELLO, I'M SURAG */}
           <HeroSection />
-          {/* 03 — WHO I AM */}
+          {/* 02 — WHO I AM */}
           <WhoAmISection />
-          {/* 04 — MY JOURNEY */}
+          {/* 03 — MY JOURNEY */}
           <ScrollStory />
-          {/* 05 — MY STORY */}
+          {/* 04 — MY STORY */}
           <ChallengesSection />
-          {/* 06 — TECHNOLOGY & POSSIBILITY */}
+          {/* 05 — TECHNOLOGY & POSSIBILITY */}
           <TechPossibilitySection />
-          {/* 07 — WHAT I DO */}
+          {/* 06 — WHAT I DO */}
           <WhatIDoSection />
-          {/* 08 — WHERE I AM NOW */}
+          {/* 07 — RIGHT NOW */}
           <StatusSection />
-          {/* 09 — MY WORK */}
+          {/* 08 — MY WORK */}
           <DigitalWorldSection />
-          {/* 10 — MOMENTS FROM THE JOURNEY */}
+          {/* 09 — MOMENTS FROM THE JOURNEY */}
           <GallerySection />
-          {/* 11 — WHAT'S NEXT */}
+          {/* 10 — STILL BECOMING */}
           <FutureSection />
-          {/* 12 — LET'S CONNECT */}
+          {/* 11 — LET'S CONNECT */}
           <ConnectSection />
         </main>
         <Footer />

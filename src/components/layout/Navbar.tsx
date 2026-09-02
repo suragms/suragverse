@@ -7,7 +7,7 @@ import { scrollToSection } from "@/lib/lenis";
 
 const navLinks = [
   { label: "HOME", href: "#home" },
-  { label: "STORY", href: "#my-story" },
+  { label: "MY STORY", href: "#my-story" },
   { label: "JOURNEY", href: "#journey" },
   { label: "WHAT I DO", href: "#what-i-do" },
   { label: "MY WORK", href: "#my-work" },

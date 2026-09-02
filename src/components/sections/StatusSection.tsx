@@ -64,7 +64,7 @@ export default function StatusSection() {
                   className="font-[family-name:var(--font-heading)] text-sm font-bold tracking-wide mb-1.5"
                   style={{ color: item.color || "#FFFFFF" }}
                 >
-                  ● {item.label}
+                  {item.label}
                 </h3>
                 <p className="text-secondary-text text-sm leading-relaxed">
                   {item.detail}

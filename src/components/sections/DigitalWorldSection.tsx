@@ -85,7 +85,7 @@ export default function DigitalWorldSection() {
                 <br />
                 DETAILED WORK.
               </p>
-              <span className="inline-flex items-center gap-3 px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-white text-black text-xs sm:text-sm font-bold tracking-wider group-hover:bg-electric-blue transition-colors duration-500 min-h-[48px]">
+              <span className="inline-flex items-center gap-3 px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-white !text-black text-xs sm:text-sm font-bold tracking-wider group-hover:bg-electric-blue group-hover:!text-black transition-colors duration-500 min-h-[48px] shadow-lg">
                 ENTER MY PORTFOLIO
                 <ArrowUpRight
                   size={17}

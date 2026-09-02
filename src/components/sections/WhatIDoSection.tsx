@@ -57,14 +57,14 @@ export default function WhatIDoSection() {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.9 }}
-              className="relative hidden lg:block"
+              className="relative mb-10 lg:mb-0 max-w-sm sm:max-w-md mx-auto lg:max-w-none"
             >
-              <div className="relative aspect-square rounded-2xl overflow-hidden">
+              <div className="relative aspect-[4/3] sm:aspect-square rounded-2xl overflow-hidden">
                 <Image
                   src={brandImages.professional.src}
                   alt={brandImages.professional.alt}
                   fill
-                  sizes="40vw"
+                  sizes="(max-width: 1024px) 85vw, 40vw"
                   loading="lazy"
                   quality={85}
                   className="object-cover"
