@@ -3,14 +3,16 @@
 
 @theme inline {
   --color-background: #050505;
-  --color-foreground: #FFFFFF;
-  --color-secondary-bg: #0B0B0F;
-  --color-secondary-text: #A1A1AA;
+  --color-foreground: #F5F5F5;
+  --color-secondary-bg: #0B0B0D;
+  --color-secondary-text: #9A9A9A;
   --color-electric-blue: #00D9FF;
+  --color-soft-blue: #A8C5D4;
+  --color-warm-gray: #6B6B6B;
   --color-purple: #7C3AED;
   --color-neon-green: #39FF88;
   --color-glass: rgba(255, 255, 255, 0.05);
-  --color-glass-border: rgba(255, 255, 255, 0.08);
+  --color-glass-border: rgba(255, 255, 255, 0.10);
   --font-heading: "Space Grotesk", sans-serif;
   --font-body: "Inter", sans-serif;
 }
@@ -30,7 +32,7 @@ html {
 
 body {
   background: #050505;
-  color: #FFFFFF;
+  color: #F5F5F5;
   font-family: "Inter", sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -99,9 +101,9 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-/* Gradient text */
+/* Gradient text — editorial silver-blue, understated. */
 .gradient-text {
-  background: linear-gradient(135deg, #00D9FF, #7C3AED);
+  background: linear-gradient(135deg, #F5F5F5 0%, #C9D6E0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -129,7 +131,7 @@ h1, h2, h3, h4, h5, h6 {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, #00D9FF, #7C3AED, #39FF88);
+  background: linear-gradient(135deg, rgba(255,255,255,0.55), rgba(0,217,255,0.35));
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -255,9 +257,9 @@ h1, h2, h3, h4, h5, h6, p, span {
   animation: particleFloat 6s ease-in-out infinite;
 }
 .particle-1 { left: 20%; top: 25%; }
-.particle-2 { right: 22%; top: 30%; background: rgba(124, 58, 237, 0.7); box-shadow: 0 0 8px rgba(124, 58, 237, 0.6); animation-delay: 1.5s; }
+.particle-2 { right: 22%; top: 30%; background: rgba(255, 255, 255, 0.45); box-shadow: 0 0 8px rgba(255,255,255,0.25); animation-delay: 1.5s; }
 .particle-3 { left: 30%; bottom: 24%; animation-delay: 3s; }
-.particle-4 { right: 28%; bottom: 28%; background: rgba(57, 255, 136, 0.7); box-shadow: 0 0 8px rgba(57, 255, 136, 0.6); animation-delay: 4.5s; }
+.particle-4 { right: 28%; bottom: 28%; background: rgba(168, 197, 212, 0.6); box-shadow: 0 0 8px rgba(168,197,212,0.35); animation-delay: 4.5s; }
 
 @keyframes particleFloat {
   0%, 100% { transform: translateY(0); opacity: 0.3; }

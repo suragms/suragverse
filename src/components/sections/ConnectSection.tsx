@@ -6,22 +6,11 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Mail } from "lucide-react";
 import { brandImages } from "@/data/images";
 import { contactInfo } from "@/data/contact";
-import { scrollToSection } from "@/lib/lenis";
-
-const availableFor = [
-  "Freelance Projects",
-  "Full-Stack Development",
-  "AI-related Work",
-  "AI Automation",
-  "Business Support",
-  "Business Development",
-  "Architectural Consultations",
-  "Technology Collaborations",
-];
 
 /**
- * Section 13 — LET'S CONNECT.
- * Cinematic closing with the dramatic studio portrait and enquiry options.
+ * Section 12 — LET'S CONNECT.
+ * Cinematic closing with the CTA portrait, contact details, and socials.
+ * "LET'S CREATE WHAT'S NEXT."
  */
 export default function ConnectSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -37,34 +26,26 @@ export default function ConnectSection() {
     <section
       id="connect"
       ref={ref}
-      className="relative py-24 sm:py-32 lg:py-40 px-4 sm:px-6 overflow-hidden border-t border-glass-border"
+      className="relative py-28 sm:py-36 lg:py-48 px-4 sm:px-6 overflow-hidden border-t border-glass-border"
     >
       <div className="absolute inset-0 bg-background" />
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute right-[8%] top-1/2 -translate-y-1/2 w-[440px] h-[640px] rounded-full bg-electric-blue/8 blur-[120px]" />
+        <div className="absolute right-[8%] top-1/2 -translate-y-1/2 w-[440px] h-[640px] rounded-full bg-electric-blue/6 blur-[120px]" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        {/* Portrait emerging from darkness */}
-        <div className="relative order-2 lg:order-1 flex justify-center">
+      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        {/* Portrait */}
+        <div className="relative order-2 lg:order-1 lg:col-span-5 flex justify-center">
           <motion.div
             style={{ scale: imgScale, opacity: imgOpacity }}
             className="relative w-full max-w-[380px]"
           >
-            <div
-              className="absolute inset-0 rounded-[2rem] blur-3xl"
-              aria-hidden="true"
-              style={{
-                background:
-                  "radial-gradient(circle at 50% 30%, rgba(0,217,255,0.22), transparent 70%)",
-              }}
-            />
-            <div className="relative aspect-[2/3] rounded-3xl overflow-hidden border border-white/5">
+            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-white/5">
               <Image
                 src={brandImages.cta.src}
                 alt={brandImages.cta.alt}
                 fill
-                sizes="(max-width: 1024px) 90vw, 40vw"
+                sizes="(max-width: 1024px) 90vw, 36vw"
                 loading="lazy"
                 quality={85}
                 className="object-cover"
@@ -74,15 +55,15 @@ export default function ConnectSection() {
                 className="absolute inset-0 pointer-events-none"
                 style={{
                   background:
-                    "linear-gradient(180deg, rgba(5,5,5,0.5), transparent 35%, transparent 70%, rgba(5,5,5,0.6))",
+                    "linear-gradient(180deg, rgba(5,5,5,0.4), transparent 35%, transparent 70%, rgba(5,5,5,0.5))",
                 }}
               />
             </div>
           </motion.div>
         </div>
 
-        {/* Copy */}
-        <div className="order-1 lg:order-2 text-center lg:text-left">
+        {/* Copy + contact details */}
+        <div className="order-1 lg:order-2 lg:col-span-7 text-center lg:text-left">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -94,58 +75,35 @@ export default function ConnectSection() {
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.1 }}
-            className="font-[family-name:var(--font-heading)] text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[0.9] mb-6"
+            className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[0.9] mb-6"
           >
             LET&apos;S CREATE
             <br />
-            SOMETHING
-            <br />
-            <span className="gradient-text">MEANINGFUL.</span>
+            <span className="gradient-text">WHAT&apos;S NEXT.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.25 }}
-            className="text-secondary-text text-base sm:text-lg mb-8 max-w-lg mx-auto lg:mx-0"
+            className="text-secondary-text text-base sm:text-lg mb-10 max-w-lg mx-auto lg:mx-0"
           >
             Whether you have an idea, an opportunity, a collaboration, or simply
             want to connect — I&apos;d love to hear from you.
           </motion.p>
 
-          {/* DM for enquiries */}
+          {/* Primary CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.35 }}
-            className="mb-8"
-          >
-            <p className="text-[10px] tracking-[0.4em] text-secondary-text font-mono mb-4">
-              DM FOR ENQUIRIES
-            </p>
-            <div className="flex flex-wrap justify-center lg:justify-start gap-2">
-              {availableFor.map((item) => (
-                <span
-                  key={item}
-                  className="px-3.5 py-1.5 rounded-full border border-glass-border text-[10px] tracking-wider text-secondary-text"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.45 }}
-            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12"
           >
             <a
               href={contactInfo.emailHref}
               className="group inline-flex items-center gap-3 px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-white text-black text-xs sm:text-sm font-bold tracking-wider hover:bg-electric-blue transition-colors duration-500 min-h-[48px] w-full sm:w-auto"
             >
               <Mail size={16} />
-              SEND AN ENQUIRY
+              START A CONVERSATION
               <ArrowRight
                 size={16}
                 className="group-hover:translate-x-2 transition-transform duration-300"
@@ -157,12 +115,69 @@ export default function ConnectSection() {
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-3 px-7 sm:px-9 py-3.5 sm:py-4 rounded-full border border-electric-blue/40 text-electric-blue text-xs sm:text-sm font-bold tracking-wider hover:bg-electric-blue/10 transition-all duration-500 min-h-[48px] w-full sm:w-auto"
             >
-              EXPLORE MY DIGITAL HUB
+              VISIT MY DIGITAL HUB
               <ArrowUpRight
                 size={16}
                 className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
               />
             </a>
+          </motion.div>
+
+          {/* Contact details */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.45 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left max-w-lg mx-auto lg:mx-0"
+          >
+            <div>
+              <p className="text-[10px] tracking-[0.4em] text-secondary-text font-mono mb-2">
+                EMAIL
+              </p>
+              <a
+                href={contactInfo.emailHref}
+                className="text-sm text-white/80 hover:text-electric-blue transition-colors"
+              >
+                {contactInfo.email}
+              </a>
+            </div>
+            <div>
+              <p className="text-[10px] tracking-[0.4em] text-secondary-text font-mono mb-2">
+                PHONE
+              </p>
+              <a
+                href={contactInfo.phoneHref}
+                className="text-sm text-white/80 hover:text-electric-blue transition-colors"
+              >
+                {contactInfo.phone}
+              </a>
+            </div>
+            <div>
+              <p className="text-[10px] tracking-[0.4em] text-secondary-text font-mono mb-2">
+                PORTFOLIO
+              </p>
+              <a
+                href={contactInfo.portfolio}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-white/80 hover:text-electric-blue transition-colors"
+              >
+                {contactInfo.portfolioLabel}
+              </a>
+            </div>
+            <div>
+              <p className="text-[10px] tracking-[0.4em] text-secondary-text font-mono mb-2">
+                LINKTREE
+              </p>
+              <a
+                href={contactInfo.linktree}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-white/80 hover:text-electric-blue transition-colors"
+              >
+                linktr.ee/suragdevstudio
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>

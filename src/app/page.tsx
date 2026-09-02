@@ -12,14 +12,10 @@ import ChallengesSection from "@/components/sections/ChallengesSection";
 import TechPossibilitySection from "@/components/sections/TechPossibilitySection";
 import WhatIDoSection from "@/components/sections/WhatIDoSection";
 import StatusSection from "@/components/sections/StatusSection";
-import EducationGrowthSection from "@/components/sections/EducationGrowthSection";
 import DigitalWorldSection from "@/components/sections/DigitalWorldSection";
 import GallerySection from "@/components/sections/GallerySection";
 import FutureSection from "@/components/sections/FutureSection";
 import ConnectSection from "@/components/sections/ConnectSection";
-import EnquiriesSection from "@/components/sections/EnquiriesSection";
-import SocialUniverse from "@/components/sections/SocialUniverse";
-import EnquiryForm from "@/components/sections/EnquiryForm";
 import FinalCTA from "@/components/sections/FinalCTA";
 import Footer from "@/components/layout/Footer";
 
@@ -32,35 +28,30 @@ export default function Home() {
       <div className="noise-overlay">
         <Navbar />
         <main>
+          {/* 01 — LOADING (handled by LoadingScreen) */}
           {/* 02 — HELLO, I'M SURAG */}
           <HeroSection />
-          {/* 03 — WHO AM I */}
+          {/* 03 — WHO I AM */}
           <WhoAmISection />
           {/* 04 — MY JOURNEY */}
           <ScrollStory />
-          {/* 05 — MY STORY & CHALLENGES */}
+          {/* 05 — MY STORY */}
           <ChallengesSection />
-          {/* 06 — TECHNOLOGY EXPANDS POSSIBILITIES */}
+          {/* 06 — TECHNOLOGY & POSSIBILITY */}
           <TechPossibilitySection />
           {/* 07 — WHAT I DO */}
           <WhatIDoSection />
           {/* 08 — WHERE I AM NOW */}
           <StatusSection />
-          {/* 09 — LEARNING & GROWTH */}
-          <EducationGrowthSection />
-          {/* 10 — EXPLORE MY WORK */}
+          {/* 09 — MY WORK */}
           <DigitalWorldSection />
-          {/* 11 — MOMENTS FROM MY JOURNEY */}
+          {/* 10 — MOMENTS FROM THE JOURNEY */}
           <GallerySection />
-          {/* 12 — THE FUTURE */}
+          {/* 11 — WHAT'S NEXT */}
           <FutureSection />
-          {/* 13 — LET'S CONNECT */}
+          {/* 12 — LET'S CONNECT */}
           <ConnectSection />
-          {/* Functional enquiries & contact */}
-          <EnquiriesSection />
-          <SocialUniverse />
-          <EnquiryForm />
-          {/* FINAL CTA — THE JOURNEY CONTINUES */}
+          {/* Epilogue */}
           <FinalCTA />
         </main>
         <Footer />

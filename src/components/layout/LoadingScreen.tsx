@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useMemo, useSyncExternalStore } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import { brandImages } from "@/data/images";
@@ -21,28 +21,29 @@ import { brandImages } from "@/data/images";
 const INTRO_EVENT = "suragverse:intro:complete";
 
 function usePrefersReducedMotion() {
-  const [reduced, setReduced] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReduced(mq.matches);
-    const onChange = (e: MediaQueryListEvent) => setReduced(e.matches);
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
-  return reduced;
+  return useSyncExternalStore(
+    (callback) => {
+      const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+      mq.addEventListener("change", callback);
+      return () => mq.removeEventListener("change", callback);
+    },
+    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    () => false
+  );
 }
 
 /** Deterministic floating particles rendered as tiny divs. */
 function Particles({ count = 20 }: { count?: number }) {
-  const seeds = useRef<number[]>([]);
-  if (seeds.current.length === 0) {
+  const seeds = useMemo(() => {
+    const arr: number[] = [];
     for (let i = 0; i < count; i++) {
-      seeds.current.push(i * 137.508); // golden-angle spacing
+      arr.push(i * 137.508); // golden-angle spacing
     }
-  }
+    return arr;
+  }, [count]);
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-      {seeds.current.map((seed, i) => {
+      {seeds.map((seed, i) => {
         const left = (seed % 100) / 100;
         const top = ((seed * 7) % 100) / 100;
         const size = 1.5 + ((seed * 13) % 30) / 10;
@@ -155,7 +156,6 @@ export default function LoadingScreen() {
     return () => {
       tl.kill();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reduced]);
 
   if (hidden) return null;
@@ -189,7 +189,7 @@ export default function LoadingScreen() {
       <div className="absolute bottom-12 sm:bottom-16 left-1/2 -translate-x-1/2 w-40 sm:w-52 lg:w-72 h-px bg-white/10 overflow-hidden">
         <div
           ref={progressRef}
-          className="h-full w-full origin-left scale-x-0 bg-gradient-to-r from-electric-blue via-purple to-neon-green"
+          className="h-full w-full origin-left scale-x-0 bg-gradient-to-r from-electric-blue via-white/60 to-electric-blue"
         />
       </div>
 

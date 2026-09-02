@@ -29,15 +29,9 @@ export const status: StatusConfig = {
     },
     {
       id: "freelance",
-      label: "AVAILABLE FOR FREELANCE WORK",
+      label: "AVAILABLE FOR FREELANCE COLLABORATION",
       detail: "Taking on meaningful freelance and contract builds.",
-      color: "#39FF88",
-    },
-    {
-      id: "collaboration",
-      label: "OPEN TO COLLABORATION",
-      detail: "Open to teaming up on technology, AI, and creative ideas.",
-      color: "#7C3AED",
+      color: "#C9D6E0",
     },
     {
       id: "building-ai",
@@ -46,16 +40,22 @@ export const status: StatusConfig = {
       color: "#00D9FF",
     },
     {
-      id: "new-tech",
-      label: "EXPLORING NEW TECHNOLOGIES",
-      detail: "Continuously learning and experimenting with new tools.",
-      color: "#39FF88",
+      id: "exploring-automation",
+      label: "EXPLORING AI AUTOMATION",
+      detail: "Experimenting with intelligent workflows that save time and scale effort.",
+      color: "#9A9A9A",
+    },
+    {
+      id: "collaboration",
+      label: "OPEN TO COLLABORATION",
+      detail: "Open to teaming up on technology, AI, and creative ideas.",
+      color: "#C9D6E0",
     },
     {
       id: "learning",
       label: "CONTINUOUSLY LEARNING",
       detail: "Growing every day — technology never stands still.",
-      color: "#A1A1AA",
+      color: "#9A9A9A",
     },
   ],
 };

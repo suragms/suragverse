@@ -8,10 +8,11 @@ import {
   useTransform,
 } from "framer-motion";
 import Image from "next/image";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { scrollToSection } from "@/lib/lenis";
 import { brandImages } from "@/data/images";
+import { contactInfo } from "@/data/contact";
 
 const HeroScene = lazy(() => import("@/components/three/HeroScene"));
 
@@ -20,7 +21,7 @@ const INTRO_EVENT = "suragverse:intro:complete";
 const roles = [
   "APPLIED AI ENGINEER",
   "FULL-STACK DEVELOPER",
-  "AI AUTOMATION ENTHUSIAST",
+  "AI AUTOMATION",
   "DIGITAL CREATOR",
 ];
 
@@ -31,17 +32,14 @@ export default function HeroSection() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const sectionRef = useRef<HTMLElement>(null);
 
-  // Mouse parallax (depth layers)
+  // Gentle portrait parallax (subtle — photography stays the focus).
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
-  const sx = useSpring(mx, { stiffness: 60, damping: 18 });
-  const sy = useSpring(my, { stiffness: 60, damping: 18 });
-  const portraitX = useTransform(sx, [-1, 1], [-12, 12]);
-  const portraitY = useTransform(sy, [-1, 1], [-8, 8]);
-  const glowX = useTransform(sx, [-1, 1], [18, -18]);
-  const glowY = useTransform(sy, [-1, 1], [14, -14]);
-  // Slow cinematic zoom that never distorts the photograph.
-  const zoom = useTransform(sx, [-1, 1], [1.02, 1.1]);
+  const sx = useSpring(mx, { stiffness: 40, damping: 20 });
+  const sy = useSpring(my, { stiffness: 40, damping: 20 });
+  const portraitX = useTransform(sx, [-1, 1], [-10, 10]);
+  const portraitY = useTransform(sy, [-1, 1], [-6, 6]);
+  const zoom = useTransform(sx, [-1, 1], [1.03, 1.08]);
 
   useEffect(() => {
     const onIntro = () => setStarted(true);
@@ -56,7 +54,6 @@ export default function HeroSection() {
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
-    // Skip mouse parallax on touch devices
     if (window.matchMedia("(pointer: coarse)").matches) return;
     const handleMove = (e: MouseEvent) => {
       const rect = el.getBoundingClientRect();
@@ -70,142 +67,155 @@ export default function HeroSection() {
     return () => window.removeEventListener("mousemove", handleMove);
   }, [mx, my]);
 
-  const handleWork = () => scrollToSection("#my-work");
   const handleStory = () => scrollToSection("#my-story");
 
   return (
     <section
       id="home"
       ref={sectionRef}
-      className="relative min-h-screen w-full overflow-hidden flex items-center justify-center"
+      className="relative min-h-screen w-full overflow-hidden flex items-center"
     >
       {/* Ambient 3D environment — activates with the timeline */}
-      <div className="absolute inset-0 z-0 transition-opacity duration-1000" style={{ opacity: started ? 1 : 0 }}>
+      <div
+        className="absolute inset-0 z-0 transition-opacity duration-1000"
+        style={{ opacity: started ? 0.5 : 0 }}
+      >
         <Suspense fallback={null}>
-          <HeroScene mouseX={mouse.x} mouseY={mouse.y} onObjectClick={handleStory} />
+          <HeroScene
+            mouseX={mouse.x}
+            mouseY={mouse.y}
+            onObjectClick={handleStory}
+          />
         </Suspense>
       </div>
 
-      {/* Cinematic gradient overlays */}
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/60 sm:from-background/70 via-transparent to-background/70 sm:to-background/85" />
-      <motion.div
-        className="pointer-events-none absolute z-[1] rounded-full blur-[80px] sm:blur-[140px]"
-        style={{ x: glowX, y: glowY, width: "min(640px, 80vw)", height: "min(640px, 80vw)", left: "60%", top: "8%" }}
-        animate={{ opacity: started ? 1 : 0 }}
-        transition={{ duration: 1.5 }}
-        aria-hidden="true"
-      />
+      {/* Cinematic grade */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/70 via-transparent to-background/80" />
 
-      <div className="relative z-[2] w-full max-w-7xl mx-auto px-4 sm:px-6 pt-24 pb-16 sm:pt-28 sm:pb-20 grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-8 lg:gap-x-16 lg:gap-y-10 items-center text-center lg:text-left">
-        {/* ——— TITLE (mobile top / desktop left) ——— */}
-        <motion.div
-          initial={{ opacity: 0, y: 26, filter: "blur(6px)" }}
-          animate={started ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-          transition={{ duration: 0.9, ease: EASE }}
-          className="order-1 lg:col-start-1 lg:row-start-1"
-        >
-          <p className="text-[10px] sm:text-[11px] tracking-[0.4em] sm:tracking-[0.5em] text-electric-blue mb-4 sm:mb-6 font-mono">
-            HELLO, I&apos;M SURAG M S.
-          </p>
-          <h1
-            className="font-[family-name:var(--font-heading)] font-bold tracking-tight leading-[0.9]"
-            style={{ fontSize: "clamp(2.4rem, 9vw, 6.5rem)" }}
-          >
-            WELCOME TO
-            <br />
-            MY <span className="text-electric-blue">UNIVERSE.</span>
-          </h1>
-        </motion.div>
-
-        {/* ——— CINEMATIC PORTRAIT (mobile middle / desktop right) ——— */}
-        <motion.div
-          initial={{ opacity: 0, y: 26, filter: "blur(6px)" }}
-          animate={started ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-          transition={{ duration: 1.1, delay: 0.35, ease: EASE }}
-          className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 flex justify-center"
-        >
+      <div className="relative z-[2] w-full max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-16 sm:pt-32 sm:pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-y-10 lg:gap-x-6">
+          {/* ——— TEXT (approx 55%) ——— */}
           <motion.div
-            style={{ x: portraitX, y: portraitY }}
-            className="relative w-full max-w-[260px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[440px]"
+            initial={{ opacity: 0, y: 26 }}
+            animate={started ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.9, ease: EASE }}
+            className="order-1 lg:col-span-7 text-center lg:text-left"
           >
-            <div
-              className="absolute -inset-4 sm:-inset-6 rounded-[1.5rem] sm:rounded-[2rem] opacity-70 blur-2xl sm:blur-3xl"
-              aria-hidden="true"
-              style={{
-                background:
-                  "radial-gradient(circle at 50% 30%, rgba(0,217,255,0.18), transparent 70%)",
-              }}
-            />
-            <motion.div
-              className="hero-frame aspect-[3/4] w-full will-change-transform"
-              style={{ scale: zoom }}
+            <p className="text-[10px] sm:text-[11px] tracking-[0.5em] text-electric-blue mb-5 sm:mb-7 font-mono">
+              HELLO, I&apos;M
+            </p>
+            <h1
+              className="font-[family-name:var(--font-heading)] font-bold tracking-tight leading-[0.86]"
+              style={{ fontSize: "clamp(3.4rem, 11vw, 9rem)" }}
             >
-              <Image
-                src={brandImages.hero.src}
-                alt={brandImages.hero.alt}
-                fill
-                priority
-                sizes="(max-width: 640px) 78vw, (max-width: 1024px) 50vw, 40vw"
-                className="hero-img object-cover"
-                quality={88}
-              />
-              {/* soft smoke atmosphere */}
-              <div
-                className="absolute inset-0 opacity-60 mix-blend-screen pointer-events-none"
-                aria-hidden="true"
-                style={{
-                  background:
-                    "radial-gradient(60% 40% at 50% 20%, rgba(255,255,255,0.10), transparent 70%)",
-                }}
-              />
+              SURAG
+              <br />
+              M S<span className="text-electric-blue">.</span>
+            </h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={started ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.9, delay: 0.25, ease: EASE }}
+              className="font-[family-name:var(--font-heading)] text-lg sm:text-2xl md:text-3xl font-semibold tracking-tight text-soft-blue mt-5 sm:mt-7"
+            >
+              WELCOME TO MY UNIVERSE.
+            </motion.p>
+          </motion.div>
+
+          {/* ——— PORTRAIT (approx 45%, extends toward edge) ——— */}
+          <motion.div
+            initial={{ opacity: 0, y: 26 }}
+            animate={started ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 1.1, delay: 0.3, ease: EASE }}
+            className="order-2 lg:col-span-5 flex justify-center lg:justify-end lg:-mr-4 xl:-mr-6"
+          >
+            <motion.div
+              style={{ x: portraitX, y: portraitY }}
+              className="relative w-full max-w-[300px] sm:max-w-[360px] lg:max-w-[440px]"
+            >
+              <motion.div
+                className="hero-frame aspect-[4/5] w-full will-change-transform"
+                style={{ scale: zoom }}
+              >
+                <Image
+                  src={brandImages.hero.src}
+                  alt={brandImages.hero.alt}
+                  fill
+                  priority
+                  sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 38vw"
+                  className="hero-img object-cover"
+                  quality={88}
+                />
+                {/* soft atmosphere, kept subtle */}
+                <div
+                  className="absolute inset-0 opacity-40 mix-blend-screen pointer-events-none"
+                  aria-hidden="true"
+                  style={{
+                    background:
+                      "radial-gradient(60% 40% at 50% 20%, rgba(255,255,255,0.08), transparent 70%)",
+                  }}
+                />
+              </motion.div>
             </motion.div>
           </motion.div>
-        </motion.div>
 
-        {/* ——— DESCRIPTION + CTAs (mobile bottom / desktop left-below) ——— */}
-        <motion.div
-          initial={{ opacity: 0, y: 26, filter: "blur(6px)" }}
-          animate={started ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-          transition={{ duration: 0.9, delay: 0.75, ease: EASE }}
-          className="order-3 lg:col-start-1 lg:row-start-2"
-        >
-          <p className="text-secondary-text text-sm sm:text-base lg:text-lg max-w-xl mx-auto lg:mx-0 mb-5 sm:mb-7 leading-relaxed">
-            A journey of curiosity, technology, creativity, challenges,
-            determination, and endless possibilities.
-          </p>
+          {/* ——— DESCRIPTION + CTAs ——— */}
+          <motion.div
+            initial={{ opacity: 0, y: 26 }}
+            animate={started ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.9, delay: 0.55, ease: EASE }}
+            className="order-3 lg:col-span-12 mt-2 lg:mt-6 text-center lg:text-left"
+          >
+            <p className="text-secondary-text text-base sm:text-lg lg:text-xl max-w-2xl mx-auto lg:mx-0 mb-7 sm:mb-9 leading-relaxed">
+              A journey through technology, creativity, challenges, growth, and
+              the ideas that continue to shape who I am.
+            </p>
 
-          <div className="flex flex-wrap justify-center lg:justify-start gap-x-4 gap-y-2 mb-7 sm:mb-9 font-mono text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.28em] text-white/70">
-            {roles.map((role) => (
-              <span key={role} className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-electric-blue" />
-                {role}
-              </span>
-            ))}
-          </div>
+            <div className="flex flex-wrap justify-center lg:justify-start gap-x-5 gap-y-2 mb-8 sm:mb-10 font-mono text-[9px] sm:text-[10px] tracking-[0.22em] text-white/70">
+              {roles.map((role, i) => (
+                <span key={role} className="flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-electric-blue" />
+                  {role}
+                  {i < roles.length - 1 && (
+                    <span className="text-white/20 hidden sm:inline">/</span>
+                  )}
+                </span>
+              ))}
+            </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4">
-            <MagneticButton
-              onClick={handleStory}
-              className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-white text-black text-xs sm:text-sm font-semibold tracking-wider rounded-full hover:bg-electric-blue hover:text-black transition-colors duration-300 hover:shadow-[0_0_40px_rgba(0,217,255,0.35)] min-h-[48px] w-full sm:w-auto"
-            >
-              DISCOVER MY STORY
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </MagneticButton>
-            <MagneticButton
-              onClick={handleWork}
-              className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 border border-glass-border text-xs sm:text-sm font-semibold tracking-wider rounded-full hover:border-white/40 hover:bg-white/5 transition-all duration-300 min-h-[48px] w-full sm:w-auto"
-            >
-              EXPLORE MY WORK
-            </MagneticButton>
-          </div>
-        </motion.div>
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4">
+              <MagneticButton
+                onClick={handleStory}
+                className="group inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 bg-white text-black text-xs sm:text-sm font-semibold tracking-wider rounded-full hover:bg-electric-blue hover:text-black transition-colors duration-300 min-h-[48px] w-full sm:w-auto"
+              >
+                DISCOVER MY STORY
+                <ArrowRight
+                  size={16}
+                  className="group-hover:translate-x-1.5 transition-transform duration-300"
+                />
+              </MagneticButton>
+              <a
+                href={contactInfo.portfolio}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 border border-glass-border text-xs sm:text-sm font-semibold tracking-wider rounded-full hover:border-white/40 hover:bg-white/5 transition-all duration-300 min-h-[48px] w-full sm:w-auto"
+              >
+                EXPLORE MY WORK
+                <ArrowUpRight
+                  size={16}
+                  className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+                />
+              </a>
+            </div>
+          </motion.div>
+        </div>
       </div>
 
       {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: started ? 1 : 0 }}
-        transition={{ delay: 3.6 }}
+        transition={{ delay: 3.4 }}
         className="absolute bottom-7 left-1/2 -translate-x-1/2 z-[2] flex flex-col items-center gap-2"
       >
         <span className="text-[9px] tracking-[0.3em] text-secondary-text">SCROLL</span>

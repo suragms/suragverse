@@ -6,18 +6,28 @@ export interface Service {
 
 /**
  * The professional services & collaborations on offer.
- * Edit this array to add or remove offerings — they render as animated cards.
+ * Edit this array to add or remove offerings — they render as an editorial list.
  */
 export const services: Service[] = [
   {
-    icon: "briefcase",
-    title: "Freelance Projects",
-    description: "End-to-end delivery of ambitious digital builds, on time and on budget.",
+    icon: "ai",
+    title: "Applied AI Engineering",
+    description: "A practical approach to building intelligent digital solutions.",
   },
   {
-    icon: "drafting",
-    title: "Architectural Consultations",
-    description: "Blueprint your product before a single line of code is written.",
+    icon: "code",
+    title: "Full-Stack Development",
+    description: "Modern, responsive, scalable applications engineered across the entire stack.",
+  },
+  {
+    icon: "workflow",
+    title: "AI Automation",
+    description: "Intelligent workflows and automation that save time and scale effort.",
+  },
+  {
+    icon: "globe",
+    title: "Web Development",
+    description: "Premium, fast, immersive websites built to convert and impress.",
   },
   {
     icon: "lifebuoy",
@@ -27,26 +37,16 @@ export const services: Service[] = [
   {
     icon: "growth",
     title: "Business Development",
-    description: "Turn ideas into revenue — strategy, scoping, and launch support.",
+    description: "Turning ideas into momentum — strategy, scoping, and launch support.",
   },
   {
-    icon: "code",
-    title: "Full-Stack Development",
-    description: "Robust, scalable applications engineered across the entire stack.",
+    icon: "drafting",
+    title: "Architectural Consultations",
+    description: "Blueprinting products and systems before a single line of code is written.",
   },
   {
     icon: "network",
-    title: "Technology Collaborations",
-    description: "Partner with me on research, innovation, and emerging technology.",
-  },
-  {
-    icon: "globe",
-    title: "Website Development",
-    description: "Premium, fast, immersive websites built to convert and impress.",
-  },
-  {
-    icon: "box",
-    title: "Digital Product Development",
-    description: "From MVP to polished product — designed, built, and shipped.",
+    title: "Technology Collaboration",
+    description: "Partnering on research, innovation, and emerging technology.",
   },
 ];

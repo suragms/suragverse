@@ -162,7 +162,7 @@ export default function GallerySection() {
             viewport={{ once: true }}
             className="text-[10px] sm:text-xs tracking-[0.4em] sm:tracking-[0.5em] text-electric-blue mb-4 font-mono"
           >
-            MY JOURNEY
+            GALLERY
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -173,7 +173,7 @@ export default function GallerySection() {
           >
             MOMENTS FROM
             <br />
-            <span className="gradient-text">MY JOURNEY.</span>
+            <span className="gradient-text">THE JOURNEY.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -199,7 +199,7 @@ export default function GallerySection() {
               className="gallery-tile block w-full mb-3 sm:mb-4 break-inside-avoid group text-left"
               aria-label={`Open image: ${img.alt}`}
             >
-              <div style={{ aspectRatio: img.aspect }}>
+              <div className="relative" style={{ aspectRatio: img.aspect }}>
                 <Image
                   src={img.thumbSrc}
                   alt={img.alt}
@@ -209,6 +209,10 @@ export default function GallerySection() {
                   quality={72}
                   className="object-cover"
                 />
+                {/* Image number */}
+                <span className="absolute top-3 left-3 font-mono text-[10px] tracking-[0.3em] text-white/70">
+                  {String(i + 1).padStart(2, "0")} / {galleryImages.length}
+                </span>
               </div>
               {/* Hover caption - always visible on touch devices via CSS */}
               {img.caption && (

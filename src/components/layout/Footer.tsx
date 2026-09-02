@@ -8,8 +8,7 @@ import { socials } from "@/data/socials";
 const footerLinks = [
   { label: "Home", href: "#home" },
   { label: "My Story", href: "#my-story" },
-  { label: "My Journey", href: "#journey" },
-  { label: "Who I Am", href: "#who-i-am" },
+  { label: "Journey", href: "#journey" },
   { label: "What I Do", href: "#what-i-do" },
   { label: "My Work", href: "#my-work" },
   { label: "Connect", href: "#connect" },
